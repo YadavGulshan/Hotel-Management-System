@@ -173,7 +173,7 @@ public class Signup_Form extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane,"Email or Phone number is already used","Sign up Failed",2);   
                 
             }else{
-                LoginForm loginform=new LoginForm();
+                Login_Form loginform=new Login_Form();
                 loginform.setVisible(true);
                 loginform.setLocationRelativeTo(null);
                 this.dispose();
@@ -188,7 +188,7 @@ public class Signup_Form extends javax.swing.JFrame {
         
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-                LoginForm loginform=new LoginForm();
+                Login_Form loginform=new Login_Form();
                 loginform.setVisible(true);
                 loginform.setLocationRelativeTo(null);
                 this.dispose();
