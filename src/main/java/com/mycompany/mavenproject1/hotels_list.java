@@ -1,20 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.mycompany.mavenproject1;
 import java.awt.Image;
 import javax.swing.ImageIcon;
  import javax.swing.JScrollPane;
-/**
- *
- * @author HP
- */
+
 public class hotels_list extends javax.swing.JFrame {
 
-    /**
-     * Creates new form hotels_list
-     */
     public hotels_list() {
         initComponents();
         image_list();
@@ -29,13 +20,6 @@ public class hotels_list extends javax.swing.JFrame {
        jLabel1.setIcon(scaleicon);
    
 }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-                HotelFirst hotelfirst=new HotelFirst();
-                hotelfirst.setVisible(true);
-                hotelfirst.setLocationRelativeTo(null);
-                this.dispose();
-    }                     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,6 +107,11 @@ public class hotels_list extends javax.swing.JFrame {
         jLabel2.setText("Hotel Infinity");
 
         jButton1.setText("Book now");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Open Sans", 0, 11)); // NOI18N
         jLabel3.setText("Built in 1956 it has old school charm and many rooms still feature high, crown-molded ceilings. A 2012 renovation brought all rooms and services up to modern day scratch and guestrooms come equipped with free Wi-Fi and all the usual amenities required for a comfortable stay.");
@@ -707,6 +696,15 @@ public class hotels_list extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ViewHotel viewhotel=new ViewHotel();
+        viewhotel.setVisible(true);
+        viewhotel.setLocationRelativeTo(null);
+        this.dispose();
+                       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
