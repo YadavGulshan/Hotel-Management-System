@@ -54,8 +54,9 @@ public class Signup_Form extends javax.swing.JFrame {
 
         jLabel6.setText("Already have an account?");
 
+        jButton2.setBackground(new java.awt.Color(102, 0, 153));
         jButton2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 255, 102));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
