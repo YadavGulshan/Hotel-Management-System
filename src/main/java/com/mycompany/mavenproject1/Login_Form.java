@@ -1,7 +1,7 @@
 package com.mycompany.mavenproject1;
 
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.swing.JOptionPane;
 
@@ -21,6 +21,8 @@ public class Login_Form extends javax.swing.JFrame {
         LoginButton = new javax.swing.JButton();
         Textemail = new javax.swing.JTextField();
         Textpassword = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +67,19 @@ public class Login_Form extends javax.swing.JFrame {
         Textpassword.setText("jPasswordField1");
         Textpassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jLabel2.setText("Don't have account? ");
+
+        jButton1.setBackground(new java.awt.Color(102, 0, 204));
+        jButton1.setFont(new java.awt.Font("Open Sans", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(238, 238, 238));
+        jButton1.setText("Sign Up");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -73,20 +88,30 @@ public class Login_Form extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LoginButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Textpassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Textpassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                     .addComponent(Textemail))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel2)
+                .addGap(2, 2, 2)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(94, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
                 .addComponent(Textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Textpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(53, 53, 53)
                 .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jButton1))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,9 +133,9 @@ public class Login_Form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-//        PreparedStatement ps;
-//        ResultSet rs;
-        
+        PreparedStatement ps;
+        ResultSet rs;
+        String query = "";
         // getting the element from form
         String email = Textemail.getText();
         String password =  String.valueOf(Textpassword.getText());
@@ -126,19 +151,31 @@ public class Login_Form extends javax.swing.JFrame {
         }
         else{
             // this is TODO PART FOR DATABASE   
-            
-            if(email.equals("rahul@g.c")&&password.equals("1234")){
-                HomePage homepage = new HomePage();
-                homepage.setVisible(true);
-                homepage.setLocationRelativeTo(null);
-                this.dispose();
+            try{
+                if(email.equals("rahul@g.c")&&password.equals("1234")){
+                    HomePage homepage = new HomePage();
+                    homepage.setVisible(true);
+                    homepage.setLocationRelativeTo(null);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(rootPane, "Wrong email or password", "Login error", 2);
+                }
+            }catch(Exception e){
                 
-            }else{
-                JOptionPane.showMessageDialog(rootPane, "Wrong email or password", "Login error", 2);
             }
+                
         }
         
     }//GEN-LAST:event_LoginButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        Signup_Form signup_Form = new Signup_Form();
+        signup_Form.setVisible(true);
+        signup_Form.setLocationRelativeTo(null);
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     public static void main(String args[]) {
 
         try {
@@ -174,7 +211,9 @@ public class Login_Form extends javax.swing.JFrame {
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField Textemail;
     private javax.swing.JPasswordField Textpassword;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

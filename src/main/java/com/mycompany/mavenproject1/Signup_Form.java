@@ -2,8 +2,11 @@ package com.mycompany.mavenproject1;
 
 // this is for database use 
 
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 import javax.swing.JOptionPane;
@@ -51,8 +54,9 @@ public class Signup_Form extends javax.swing.JFrame {
 
         jLabel6.setText("Already have an account?");
 
+        jButton2.setBackground(new java.awt.Color(102, 0, 153));
         jButton2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 255, 102));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,23 +143,26 @@ public class Signup_Form extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//        PreparedStatement ps;
-//        ResultSet rs;
         
         //get the username,phone,email,password
         String name = TextName.getText();
-        String phone = TextPhone.getText();
+        String phone_number = TextPhone.getText();
         String email = TextEmail.getText();
         String password = String.valueOf(TextPassword.getText());
+
         
-        //check if the name is empty
+        PreparedStatement ps;
+        ResultSet rs;
+        String query = "INSERT INTO 'users'('name', 'email', 'password', 'phone_number') VALUES (?,?,?,?)";
+        
+        
+        //check if the input is empty
         if(name.trim().equals(""))
         {
          JOptionPane.showMessageDialog(rootPane,"Enter Your Name","Empty name",2);
         
     }//GEN-LAST:event_jButton1ActionPerformed
-        else if(phone.trim().equals(""))
+        else if(phone_number.trim().equals(""))
         {
          JOptionPane.showMessageDialog(rootPane,"Enter Your PhoneNumber","Empty PhoneNumber",2);
            
@@ -169,17 +176,32 @@ public class Signup_Form extends javax.swing.JFrame {
          JOptionPane.showMessageDialog(rootPane,"Enter Your Password","Empty Password",2);   
 
         }else{
-            if(phone.equals("1234")&& email.equals("xyz.com") ){
-                JOptionPane.showMessageDialog(rootPane,"Email or Phone number is already used","Sign up Failed",2);   
+            
+            try {
+            ps = connectDatabse.getConnection().prepareStatement(query);
+            
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, password);
+            ps.setString(4, phone_number);
+            if(ps.executeUpdate()> 0){
                 
+            JOptionPane.showMessageDialog(null, "SignUp Successful");
+            
+
             }else{
-                Login_Form loginform=new Login_Form();
-                loginform.setVisible(true);
-                loginform.setLocationRelativeTo(null);
-                this.dispose();
-                
+                JOptionPane.showMessageDialog(null, "User Exist");
+                name= "";
+                email = "";
+                email = "";
+                password = "";
+                phone_number = "";
                 
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Signup_Form.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
         }
             
         }
