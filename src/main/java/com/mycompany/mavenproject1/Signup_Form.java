@@ -1,5 +1,7 @@
 package com.mycompany.mavenproject1;
 
+
+
 // this is for database use 
 
 import java.sql.PreparedStatement;
@@ -54,9 +56,8 @@ public class Signup_Form extends javax.swing.JFrame {
 
         jLabel6.setText("Already have an account?");
 
-        jButton2.setBackground(new java.awt.Color(102, 0, 153));
         jButton2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(102, 255, 102));
         jButton2.setText("Login");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,8 +153,8 @@ public class Signup_Form extends javax.swing.JFrame {
 
         
         PreparedStatement ps;
-        ResultSet rs;
-        String query = "INSERT INTO 'users'('name', 'email', 'password', 'phone_number') VALUES (?,?,?,?)";
+//        ResultSet rs;
+        String query = "INSERT INTO `users`(`name`, `email`, `password`, `phone_number`) VALUES (?,?,?,?)";
         
         
         //check if the input is empty
@@ -184,27 +185,25 @@ public class Signup_Form extends javax.swing.JFrame {
             ps.setString(2, email);
             ps.setString(3, password);
             ps.setString(4, phone_number);
-            if(ps.executeUpdate()> 0){
+            
+            if(ps.executeUpdate()>0){
                 
             JOptionPane.showMessageDialog(null, "SignUp Successful");
             
+            
 
-            }else{
-                JOptionPane.showMessageDialog(null, "User Exist");
-                name= "";
-                email = "";
-                email = "";
-                password = "";
-                phone_number = "";
-                
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(Signup_Form.class.getName()).log(Level.SEVERE, null, ex);
-        }
+	        } catch (SQLException ex) {
+	            JOptionPane.showMessageDialog(rootPane, "Email or Phone Already Used", "User exist", 2);
+	            email = "";
+	            phone_number = "";
+	            Logger.getLogger(Signup_Form.class.getName()).log(Level.SEVERE, null, ex);
+	            
+	        }
             
         }
             
-        }
+       }
 
             
         
@@ -241,6 +240,9 @@ public class Signup_Form extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Signup_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
