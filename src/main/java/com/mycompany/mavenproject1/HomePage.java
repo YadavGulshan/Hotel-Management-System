@@ -1,25 +1,37 @@
 
 package com.mycompany.mavenproject1;
 
+//import java.sql.PreparedStatement;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
 
-public class HomePage extends javax.swing.JFrame {
+public final class HomePage extends javax.swing.JFrame {
 
     /**
      * Creates new form HomePage
      */
+    
+    String user_name;
+    int isAdmin;
+    String Greeting_user;
     public HomePage() {
-        setUserName("user");
+        
+        Login_Form login = new Login_Form();
+        this.user_name = login.Name;
+        this.isAdmin= login.isAdmin;
+        System.out.print(user_name);
+        setUserName(user_name);
+        
         initComponents();
 
     }
     public void setUserName(String user_name){
-        this.user_name = user_name;
+        this.user_name=user_name; 
         this.Greeting_user = "Hello" + " " + this.user_name;
         
 
     }
-        String user_name ;
-        String Greeting_user;
+
         
 
     @SuppressWarnings("unchecked")

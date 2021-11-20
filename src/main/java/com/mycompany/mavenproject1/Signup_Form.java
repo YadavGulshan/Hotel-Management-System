@@ -3,7 +3,7 @@ package com.mycompany.mavenproject1;
 
 
 // this is for database use 
-
+import java.util.regex.*;    
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -150,28 +150,44 @@ public class Signup_Form extends javax.swing.JFrame {
         String phone_number = TextPhone.getText();
         String email = TextEmail.getText();
         String password = String.valueOf(TextPassword.getText());
-
+        
         
         PreparedStatement ps;
 //        ResultSet rs;
         String query = "INSERT INTO `users`(`name`, `email`, `password`, `phone_number`) VALUES (?,?,?,?)";
         
+        // email vaildition
+        String regex = "^(.+)@(.+)$";  
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);  
+        
+        
         
         //check if the input is empty
+        System.out.print(phone_number.getClass().getSimpleName());
+
         if(name.trim().equals(""))
         {
          JOptionPane.showMessageDialog(rootPane,"Enter Your Name","Empty name",2);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    // checking wheather the given phone number is a number or not  
         else if(phone_number.trim().equals(""))
         {
+        	
          JOptionPane.showMessageDialog(rootPane,"Enter Your PhoneNumber","Empty PhoneNumber",2);
            
         }
-        else if(email.trim().equals(""))
+
+        // Checking wheather the given email is email or not 
+
+        else if(email.trim().equals("")||!matcher.matches())
         {
          JOptionPane.showMessageDialog(rootPane,"Enter Your EmailAddress","Empty EmailAddress",2);   
         }
+        
         else if(password.trim().equals(""))
         {
          JOptionPane.showMessageDialog(rootPane,"Enter Your Password","Empty Password",2);   
