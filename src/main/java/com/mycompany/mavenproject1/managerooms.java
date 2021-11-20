@@ -48,11 +48,9 @@ public class managerooms extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mavenproject1/Images/manage room.png"))); // NOI18N
         jLabel1.setText("Manage Rooms");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 11, 162, -1));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mavenproject1/Images/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -123,9 +121,9 @@ public class managerooms extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 316, 290, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mavenproject1/Images/hotelopedia 1.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-740, -250, 2670, 1260));
+        jLabel6.setToolTipText("");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -170, 2670, 1260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
