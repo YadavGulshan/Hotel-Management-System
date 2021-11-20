@@ -1,9 +1,6 @@
 package com.mycompany.mavenproject1;
 
 
-
-//import java.sql.Connection;
-//import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,7 +11,9 @@ import javax.swing.JOptionPane;
 
 
 public class Login_Form extends javax.swing.JFrame {
-
+    
+    public String id, Name, email, phoneNumber;
+    int isAdmin;
     public Login_Form() {
         initComponents();
     }
@@ -143,13 +142,13 @@ public class Login_Form extends javax.swing.JFrame {
         
         PreparedStatement ps;
         ResultSet rs;
-//        Connection connect = null;
-        String query = "SELECT * FROM `users` WHERE `email` = ? AND `password` = ?";
+
+        String query = "SELECT * FROM `Receptionist` WHERE `Email` = ? AND `password` = ?";
         
         
         // getting the element from form
-        String email = Textemail.getText();
-        String password =  String.valueOf(Textpassword.getText());
+        this.email = Textemail.getText();
+        final String password =  String.valueOf(Textpassword.getText());
        
         //check if the email field is empty
         
@@ -163,9 +162,6 @@ public class Login_Form extends javax.swing.JFrame {
         else{
             try{
             	
-//                Class.forName("com.mysql.jdbc.Driver");
-//                connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel","root","rahul123");
-//                ps = connect.prepareStatement(query); 
                   ps = connectDatabse.getConnection().prepareStatement(query);
                   ps.setString(1, email);
                   ps.setString(2, password);
@@ -173,8 +169,9 @@ public class Login_Form extends javax.swing.JFrame {
                   
                   if(rs.next()){
                       JOptionPane.showMessageDialog(rootPane, "Login Successesful", "Succes", 2);
-                       String id = rs.getString(1);
-                       
+                       this.id = rs.getString(1);
+                       this.Name = rs.getString(2);
+                       this.phoneNumber = rs.getString(3);
                       HomePage homePage = new HomePage();
                       homePage.setVisible(true);
                       homePage.setLocationRelativeTo(null);
@@ -211,27 +208,6 @@ public class Login_Form extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Login_Form.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
