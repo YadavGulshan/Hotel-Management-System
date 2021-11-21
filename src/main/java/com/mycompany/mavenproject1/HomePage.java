@@ -18,6 +18,7 @@ public final class HomePage extends javax.swing.JFrame {
         
         Login_Form login = new Login_Form();
         this.user_name = login.Name;
+        System.out.println(login.email);
         this.isAdmin= login.isAdmin;
         System.out.print(user_name);
         setUserName(user_name);

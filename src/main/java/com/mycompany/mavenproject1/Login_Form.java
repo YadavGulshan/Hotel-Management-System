@@ -1,15 +1,10 @@
 package com.mycompany.mavenproject1;
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javax.swing.JOptionPane;
-
-
 public class Login_Form extends javax.swing.JFrame {
     
     public String id, Name, email, phoneNumber;
@@ -142,7 +137,7 @@ public class Login_Form extends javax.swing.JFrame {
         
         PreparedStatement ps;
         ResultSet rs;
-
+        
         String query = "SELECT * FROM `Receptionist` WHERE `Email` = ? AND `password` = ?";
         
         
