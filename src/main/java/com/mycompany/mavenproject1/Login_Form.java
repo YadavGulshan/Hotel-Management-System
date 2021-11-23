@@ -1,4 +1,5 @@
 package com.mycompany.mavenproject1;
+import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,6 @@ public class Login_Form extends javax.swing.JFrame {
     public Login_Form() {
         initComponents();
     }
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -20,8 +20,8 @@ public class Login_Form extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         LoginButton = new javax.swing.JButton();
-        Textemail = new javax.swing.JTextField();
-        Textpassword = new javax.swing.JPasswordField();
+        textEmail = new javax.swing.JTextField();
+        textPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -29,7 +29,7 @@ public class Login_Form extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Open Sans", Font.BOLD, 36)); // NOI18N
         jLabel1.setText("Login");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -52,21 +52,17 @@ public class Login_Form extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         LoginButton.setBackground(new java.awt.Color(87, 41, 181));
-        LoginButton.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        LoginButton.setFont(new java.awt.Font("Open Sans", Font.BOLD, 18)); // NOI18N
         LoginButton.setForeground(new java.awt.Color(255, 255, 255));
         LoginButton.setText("Login");
-        LoginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginButtonActionPerformed(evt);
-            }
-        });
+        LoginButton.addActionListener(this::LoginButtonActionPerformed);
 
-        Textemail.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        Textemail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
+        textEmail.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        textEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
 
-        Textpassword.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        Textpassword.setText("jPasswordField1");
-        Textpassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
+        textPassword.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        textPassword.setText("jPasswordField1");
+        textPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel2.setText("Don't have account? ");
@@ -89,8 +85,8 @@ public class Login_Form extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LoginButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Textpassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                    .addComponent(Textemail))
+                    .addComponent(textPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addComponent(textEmail))
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
@@ -103,9 +99,9 @@ public class Login_Form extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(Textemail, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Textpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -142,8 +138,8 @@ public class Login_Form extends javax.swing.JFrame {
         
         
         // getting the element from form
-        this.email = Textemail.getText();
-        final String password =  String.valueOf(Textpassword.getText());
+        this.email = textEmail.getText();
+        final String password =  String.valueOf(textPassword.getText());
        
         //check if the email field is empty
         
@@ -163,7 +159,7 @@ public class Login_Form extends javax.swing.JFrame {
                   rs = ps.executeQuery();
                   
                   if(rs.next()){
-                      JOptionPane.showMessageDialog(rootPane, "Login Successesful", "Succes", 2);
+                      JOptionPane.showMessageDialog(rootPane, "Login Successful", "Success", 2);
                        this.id = rs.getString(1);
                        this.Name = rs.getString(2);
                        this.phoneNumber = rs.getString(3);
@@ -214,8 +210,8 @@ public class Login_Form extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LoginButton;
-    private javax.swing.JTextField Textemail;
-    private javax.swing.JPasswordField Textpassword;
+    private javax.swing.JTextField textEmail;
+    private javax.swing.JPasswordField textPassword;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
