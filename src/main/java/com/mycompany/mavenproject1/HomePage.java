@@ -1,9 +1,9 @@
 
 package com.mycompany.mavenproject1;
 
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-//import java.sql.SQLException;
+import java.awt.*;
+import java.net.URL;
+import java.util.Objects;
 
 public final class HomePage extends javax.swing.JFrame {
 
@@ -19,7 +19,6 @@ public final class HomePage extends javax.swing.JFrame {
         Login_Form login = new Login_Form();
         this.user_name = login.Name;
         this.isAdmin= login.isAdmin;
-        System.out.print(user_name);
         setUserName(user_name);
         
         initComponents();
@@ -34,7 +33,6 @@ public final class HomePage extends javax.swing.JFrame {
 
         
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -67,7 +65,7 @@ public final class HomePage extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        greeting_user.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        greeting_user.setFont(new java.awt.Font("Open Sans", Font.BOLD, 18)); // NOI18N
         greeting_user.setForeground(new java.awt.Color(255, 255, 255));
         greeting_user.setLabelFor(greeting_user);
         greeting_user.setText(this.Greeting_user);
@@ -190,9 +188,9 @@ public final class HomePage extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(147, 201, 253));
         jPanel10.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mavenproject1/Images/meeting-room.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/com/mycompany/mavenproject1/Images/meeting-room.png")))); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Open Sans", Font.BOLD, 24)); // NOI18N
         jLabel6.setText("Manage Rooms");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -245,7 +243,7 @@ public final class HomePage extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(147, 201, 253));
         jPanel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mavenproject1/Images/check-in-desk.png"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/com/mycompany/mavenproject1/Images/check-in-desk.png")))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
         jLabel7.setText("Check In ");
@@ -280,7 +278,7 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Open Sans", 1, 24)); // NOI18N
         jLabel9.setText("Check Out");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/mavenproject1/Images/check-out.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/com/mycompany/mavenproject1/Images/check-out.png")))); // NOI18N
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -359,7 +357,7 @@ public final class HomePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
  
-    public static void main(String args[]) {
+    public static void main(String[] args) {
          try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -373,9 +371,8 @@ public final class HomePage extends javax.swing.JFrame {
          
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            
-            new HomePage().setVisible(true); 
-        });
+            new HomePage().setVisible(true);
+         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel greeting_user;
