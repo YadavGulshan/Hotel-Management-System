@@ -2,6 +2,7 @@
 package com.mycompany.mavenproject1;
 
 import java.awt.*;
+import java.net.URL;
 import java.util.Objects;
 
 public final class HomePage extends javax.swing.JFrame {
@@ -370,9 +371,8 @@ public final class HomePage extends javax.swing.JFrame {
          
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            
-            new HomePage().setVisible(true); 
-        });
+            new HomePage().setVisible(true);
+         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel greeting_user;

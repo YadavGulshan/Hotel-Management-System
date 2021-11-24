@@ -44,7 +44,6 @@ public class managerooms extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(50, 118));
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -52,11 +51,7 @@ public class managerooms extends javax.swing.JFrame {
         jLabel1.setText("Manage Rooms");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 11, 162, -1));
 
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, 31, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -124,7 +119,7 @@ public class managerooms extends javax.swing.JFrame {
 
         jLabel6.setText("jLabel6");
         jLabel6.setToolTipText("");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -170, 2670, 1260));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -170, 900, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -136,12 +131,6 @@ public class managerooms extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        setVisible(false);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

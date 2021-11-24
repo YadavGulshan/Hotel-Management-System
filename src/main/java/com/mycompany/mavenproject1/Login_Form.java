@@ -5,8 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-public class Login_Form extends javax.swing.JFrame {
+import javax.swing.*;
+
+public class Login_Form extends JFrame {
     
     public String id, Name, email, phoneNumber;
     int isAdmin;

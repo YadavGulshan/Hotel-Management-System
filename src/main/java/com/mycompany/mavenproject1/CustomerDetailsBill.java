@@ -63,7 +63,7 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Id", "Name", "Mobile No.", "Natinality", "Gender", "Email", "IdProof", "Address", "Check In Date", "Room Number ", "Bed", "Room Type", "Price per day", "Number of days Stayed", "Total Amount", "Check Out Date"
+                "Id", "Name", "Mobile No.", "Gender", "Email", "IdProof", "Address", "Check In Date", "Room Number ", "Bed", "Room Type", "Price per day", "Number of days Stayed", "Total Amount", "Check Out Date"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -107,7 +107,8 @@ public class CustomerDetailsBill extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    // </editor-fold>//GEN-END:initComponents
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
