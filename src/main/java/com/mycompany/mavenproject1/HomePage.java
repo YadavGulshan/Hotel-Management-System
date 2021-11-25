@@ -82,7 +82,7 @@ public final class HomePage extends javax.swing.JFrame {
         settingLabel.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         settingLabel.setForeground(new java.awt.Color(255, 255, 255));
         settingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        settingLabel.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/images/icons8-settings-24 (1).png")); // NOI18N
+        settingLabel.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/images/icons8-settings-24 (1).png")); // NOI18N
         settingLabel.setText("  Settings");
         settingLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(16, 44, 74), 2, true));
         settingLabel.setOpaque(true);
@@ -192,7 +192,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("srcc/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel6.setText("Manage Rooms");
@@ -254,7 +254,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel7.setText("Check In");
