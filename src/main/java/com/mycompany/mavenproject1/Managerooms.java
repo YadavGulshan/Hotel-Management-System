@@ -10,12 +10,12 @@ import javax.swing.*;
  *
  * @author HP
  */
-public class managerooms extends javax.swing.JFrame {
+public class Managerooms extends javax.swing.JFrame {
 
     /**
-     * Creates new form managerooms
+     * Creates new form ManageRooms
      */
-    public managerooms() {
+    public Managerooms() {
         initComponents();
     }
 
@@ -44,6 +44,7 @@ public class managerooms extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(50, 118));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -51,7 +52,11 @@ public class managerooms extends javax.swing.JFrame {
         jLabel1.setText("Manage Rooms");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 11, 162, -1));
 
-
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, 31, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -119,7 +124,7 @@ public class managerooms extends javax.swing.JFrame {
 
         jLabel6.setText("jLabel6");
         jLabel6.setToolTipText("");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -170, 900, 600));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-200, -170, 2670, 1260));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,14 +150,15 @@ public class managerooms extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(managerooms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Managerooms.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new managerooms().setVisible(true);
+                new Managerooms().setVisible(true);
             }
         });
     }

@@ -3,12 +3,12 @@ package com.mycompany.mavenproject1;
 
 import java.awt.*;
 
-public class Checkout1 extends javax.swing.JFrame {
+public class Checkout extends javax.swing.JFrame {
 
     /**
      * Creates new form Checkout1
      */
-    public Checkout1() {
+    public Checkout() {
         initComponents();
     }
 
@@ -38,14 +38,11 @@ public class Checkout1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Check Out");
         setBounds(new java.awt.Rectangle(0, 0, 950, 650));
-        setMaximumSize(new java.awt.Dimension(950, 550));
         setMinimumSize(new java.awt.Dimension(950, 550));
-        setName("Checkout"); // NOI18N
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
+        setName("Chechout"); // NOI18N
         setResizable(false);
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 255));
+        mainPanel.setBackground(new java.awt.Color(173, 224, 252));
         mainPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         backToHome.setBackground(new java.awt.Color(120, 0, 230));
@@ -76,28 +73,43 @@ public class Checkout1 extends javax.swing.JFrame {
             }
         });
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Custumer Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
         jTextField1.setOpaque(false);
 
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Custumer Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
+        jTextField2.setOpaque(false);
         jTextField2.setPreferredSize(new java.awt.Dimension(63, 16));
 
+        jTextField3.setEditable(false);
         jTextField3.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Custumer Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
+        jTextField3.setOpaque(false);
 
+        jTextField4.setEditable(false);
         jTextField4.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Customer's Mobile Number", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
+        jTextField4.setOpaque(false);
         jTextField4.setPreferredSize(new java.awt.Dimension(63, 16));
 
+        jTextField5.setEditable(false);
         jTextField5.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Total Charge", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 14))); // NOI18N
+        jTextField5.setOpaque(false);
 
+        jTextField6.setEditable(false);
         jTextField6.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Per Day Charge", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 14))); // NOI18N
+        jTextField6.setOpaque(false);
 
+        jTextField7.setEditable(false);
         jTextField7.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "No Of Day Stay", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 14))); // NOI18N
+        jTextField7.setOpaque(false);
 
+        jTextField8.setEditable(false);
         jTextField8.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true), "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 14))); // NOI18N
+        jTextField8.setOpaque(false);
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -207,15 +219,16 @@ public class Checkout1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Checkout1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Checkout.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new Checkout1().setVisible(true);
+            new Checkout().setVisible(true);
         });
     }
 
