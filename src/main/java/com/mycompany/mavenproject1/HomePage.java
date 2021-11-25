@@ -379,7 +379,6 @@ public final class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_checkOutPanelMouseClicked
 
     private void checkInPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInPanelMouseClicked
-        // TODO add your handling code here:
         CheckIn checkin = new CheckIn();
         checkin.setVisible(true);
         checkin.setLocationRelativeTo(null);
@@ -387,13 +386,11 @@ public final class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_checkInPanelMouseClicked
 
     private void manageRoomPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRoomPanelMouseClicked
-        // TODO add your handling code here:
         ManageRooms_ manageRooms = new ManageRooms_();
     }//GEN-LAST:event_manageRoomPanelMouseClicked
 
     private void settingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingLabelMouseClicked
-        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_settingLabelMouseClicked
  
     public static void main(String[] args) {
