@@ -372,7 +372,8 @@ public final class HomePage extends javax.swing.JFrame {
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
         Checkout checkout = new Checkout();
         checkout.setVisible(true);
-        checkout.setLocationRelativeTo(null);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         this.dispose();
         
     }//GEN-LAST:event_checkOutPanelMouseClicked
@@ -387,7 +388,7 @@ public final class HomePage extends javax.swing.JFrame {
 
     private void manageRoomPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRoomPanelMouseClicked
         // TODO add your handling code here:
-        
+        ManageRooms_ manageRooms = new ManageRooms_();
     }//GEN-LAST:event_manageRoomPanelMouseClicked
 
     private void settingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingLabelMouseClicked
