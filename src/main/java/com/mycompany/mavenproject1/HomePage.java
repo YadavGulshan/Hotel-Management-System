@@ -65,7 +65,8 @@ public final class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Reservation System");
-        setLocation(new java.awt.Point(0, 0));
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
