@@ -3,9 +3,9 @@ package com.mycompany.mavenproject1;
 
 
 // this is for database use 
-import java.util.regex.*;    
+import java.awt.*;
+import java.util.regex.*;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,7 +37,9 @@ public class Signup_Form extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-
+        setTitle("SignUp");
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         TextPassword.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
@@ -195,7 +197,7 @@ public class Signup_Form extends javax.swing.JFrame {
         }else{
             
             try {
-            ps = connectDatabse.getConnection().prepareStatement(query);
+            ps = connectDatabase.getConnection().prepareStatement(query);
             
             ps.setString(1, name);
             ps.setString(2, email);

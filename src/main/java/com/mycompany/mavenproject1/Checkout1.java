@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.mavenproject1;
 
-/**
- *
- * @author rahul
- */
+import java.awt.*;
+
 public class Checkout1 extends javax.swing.JFrame {
 
     /**
@@ -42,11 +36,13 @@ public class Checkout1 extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(0, 0, 900, 600));
+        setTitle("Check Out");
+        setBounds(new java.awt.Rectangle(0, 0, 950, 650));
         setMaximumSize(new java.awt.Dimension(950, 550));
         setMinimumSize(new java.awt.Dimension(950, 550));
-        setName("Chechout"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(950, 550));
+        setName("Checkout"); // NOI18N
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         setResizable(false);
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
