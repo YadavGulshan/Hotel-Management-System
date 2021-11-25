@@ -27,6 +27,9 @@ public class Login_Form extends JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("LogIn");
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -62,7 +65,7 @@ public class Login_Form extends JFrame {
         textEmail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
 
         textPassword.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        textPassword.setText("jPasswordField1");
+        textPassword.setText("");
         textPassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Open Sans", 1, 12))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
