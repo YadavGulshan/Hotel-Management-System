@@ -157,7 +157,7 @@ public class Login_Form extends JFrame {
         else{
             try{
             	
-                  ps = connectDatabse.getConnection().prepareStatement(query);
+                  ps = connectDatabase.getConnection().prepareStatement(query);
                   ps.setString(1, email);
                   ps.setString(2, password);
                   rs = ps.executeQuery();

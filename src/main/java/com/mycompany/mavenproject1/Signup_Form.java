@@ -6,7 +6,6 @@ package com.mycompany.mavenproject1;
 import java.awt.*;
 import java.util.regex.*;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -198,7 +197,7 @@ public class Signup_Form extends javax.swing.JFrame {
         }else{
             
             try {
-            ps = connectDatabse.getConnection().prepareStatement(query);
+            ps = connectDatabase.getConnection().prepareStatement(query);
             
             ps.setString(1, name);
             ps.setString(2, email);
