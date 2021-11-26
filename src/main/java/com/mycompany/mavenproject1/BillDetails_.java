@@ -4,6 +4,8 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.awt.*;
+
 /**
  *
  * @author HP
@@ -37,7 +39,9 @@ public class BillDetails_ extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        setResizable(false);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 102));
