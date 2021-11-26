@@ -34,6 +34,7 @@ public class invoicegenerator {
             form("CheckIn Details: ", "Timestamp", 640, font, contents);
             form("Checkout Details: ", "Timestamp", 620, font, contents);
             form("Invoice Id: ", "#KJDNCD5", 720, font, contents);
+            form("Total Amount: ", "₹10000000", 600, font, contents);
             AddData(Title, font, 20, 50, 100, contents);
             AddData(Address, font, 10, 50, 120, contents);
 
