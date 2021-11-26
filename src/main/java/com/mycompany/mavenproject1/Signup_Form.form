@@ -6,6 +6,7 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ff" green="ff" red="ff" type="rgb"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -53,27 +54,34 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" pref="185" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="282" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="TextName" min="-2" pref="300" max="-2" attributes="0"/>
                               <Component id="TextPhone" max="32767" attributes="0"/>
                               <Component id="TextEmail" max="32767" attributes="0"/>
                               <Component id="TextPassword" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel1" min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="TextName" min="-2" pref="300" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButton2" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" pref="282" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
@@ -83,9 +91,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="65" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="TextName" min="-2" pref="67" max="-2" attributes="0"/>
                   <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="TextPhone" min="-2" pref="67" max="-2" attributes="0"/>
@@ -98,9 +106,9 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                  <EmptySpace pref="73" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -145,11 +153,14 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="0" red="66" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Open Sans" size="14" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="ff" red="66" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>

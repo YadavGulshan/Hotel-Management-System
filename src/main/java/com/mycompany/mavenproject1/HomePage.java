@@ -1,55 +1,47 @@
 
 package com.mycompany.mavenproject1;
 
-import javax.swing.*;
-import javax.swing.border.LineBorder;
+
 import java.awt.*;
-import java.util.Objects;
+import javax.swing.JOptionPane;
 
 public final class HomePage extends javax.swing.JFrame {
 
-    /**
-     * Creates new form HomePage
-     */
-    
-    String user_name;
-    int isAdmin;
-    String Greeting_user;
+    private String user_name;
+    private boolean isAdmin;
+    private String Greeting_user;
+    private String email, pass;
+
     public HomePage() {
-        
-        Login_Form login = new Login_Form();
-        this.user_name = login.Name;
-        this.isAdmin= login.isAdmin;
-        setUserName(user_name);
-
         initComponents();
-
     }
 
-    private static void run() {
-        new HomePage().setVisible(true);
+    public HomePage(String name, String email, String pass, boolean isAdmin) {
+        this.email = email;
+        this.pass = pass;
+        this.user_name = name;
+        this.isAdmin = isAdmin;
+
+        setUserName(user_name);
+        initComponents();
     }
 
     public void setUserName(String user_name){
         this.user_name=user_name; 
         this.Greeting_user = "Hello" + " " + this.user_name;
-        
-
     }
 
-        
-
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         greeting_user = new javax.swing.JLabel();
-        settingLabel = new javax.swing.JLabel();
+        SettingButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        LogOutButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         manageRoomPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -66,11 +58,11 @@ public final class HomePage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Reservation System");
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
+        setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         greeting_user.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         greeting_user.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,17 +70,13 @@ public final class HomePage extends javax.swing.JFrame {
         greeting_user.setText(this.Greeting_user);
         greeting_user.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        settingLabel.setBackground(new java.awt.Color(16, 44, 74));
-        settingLabel.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
-        settingLabel.setForeground(new java.awt.Color(255, 255, 255));
-        settingLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        settingLabel.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/images/icons8-settings-24 (1).png")); // NOI18N
-        settingLabel.setText("  Settings");
-        settingLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(16, 44, 74), 2, true));
-        settingLabel.setOpaque(true);
-        settingLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                settingLabelMouseClicked(evt);
+        SettingButton.setBackground(new java.awt.Color(173, 224, 252));
+        SettingButton.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        SettingButton.setForeground(new java.awt.Color(27, 40, 57));
+        SettingButton.setText("Settings");
+        SettingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SettingButtonActionPerformed(evt);
             }
         });
 
@@ -100,21 +88,21 @@ public final class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(greeting_user, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(settingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addComponent(SettingButton)
+                .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(greeting_user, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(settingLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                    .addComponent(SettingButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(greeting_user, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(173, 224, 252));
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         jPanel4.setBackground(new java.awt.Color(147, 201, 253));
         jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -130,7 +118,7 @@ public final class HomePage extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(19, 19, 19)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -160,6 +148,16 @@ public final class HomePage extends javax.swing.JFrame {
             .addGap(0, 144, Short.MAX_VALUE)
         );
 
+        LogOutButton.setBackground(new java.awt.Color(204, 0, 0));
+        LogOutButton.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        LogOutButton.setForeground(new java.awt.Color(255, 255, 255));
+        LogOutButton.setText("Logout");
+        LogOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogOutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -170,6 +168,10 @@ public final class HomePage extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,11 +180,13 @@ public final class HomePage extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
 
         jPanel3.setBackground(new java.awt.Color(173, 224, 252));
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
 
         manageRoomPanel.setBackground(new java.awt.Color(147, 201, 253));
         manageRoomPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -192,7 +196,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("srcc/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel6.setText("Manage Rooms");
@@ -241,9 +245,9 @@ public final class HomePage extends javax.swing.JFrame {
         homeLabelLayout.setVerticalGroup(
             homeLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homeLabelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(11, 11, 11)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         checkInPanel.setBackground(new java.awt.Color(147, 201, 253));
@@ -254,7 +258,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel7.setText("Check In");
@@ -325,19 +329,20 @@ public final class HomePage extends javax.swing.JFrame {
                 .addGap(25, 25, 25)
                 .addComponent(manageRoomPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(checkInPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(checkOutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(213, 213, 213)
-                .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(checkInPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addComponent(checkOutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(homeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,13 +372,13 @@ public final class HomePage extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
 
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
+             
         Checkout checkout = new Checkout();
         checkout.setVisible(true);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
+        checkout.setLocationRelativeTo(null);
         this.dispose();
         
     }//GEN-LAST:event_checkOutPanelMouseClicked
@@ -387,11 +392,28 @@ public final class HomePage extends javax.swing.JFrame {
 
     private void manageRoomPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRoomPanelMouseClicked
         ManageRooms_ manageRooms = new ManageRooms_();
+        manageRooms.setVisible(true);
+        manageRooms.setLocationRelativeTo(null);
+        this.dispose();
     }//GEN-LAST:event_manageRoomPanelMouseClicked
 
-    private void settingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingLabelMouseClicked
+    private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
+        this.dispose();
+        Settings settings = new Settings();
+        settings.setVisible(true);
+        settings.setLocationRelativeTo(null);
+    }//GEN-LAST:event_SettingButtonActionPerformed
 
-    }//GEN-LAST:event_settingLabelMouseClicked
+    private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
+        int a=JOptionPane.showConfirmDialog(null,"Are you sure?");  
+        if(a==0)
+        {
+        this.dispose();
+        Login_Form login = new Login_Form();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null);
+        }
+    }
  
     public static void main(String[] args) {
          try {
@@ -406,9 +428,16 @@ public final class HomePage extends javax.swing.JFrame {
         }
          
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(HomePage::run);
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new HomePage().setVisible(true);
+            }
+        });
     }
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+
+    private javax.swing.JButton LogOutButton;
+    private javax.swing.JButton SettingButton;
     private javax.swing.JPanel checkInPanel;
     private javax.swing.JPanel checkOutPanel;
     private javax.swing.JLabel greeting_user;
@@ -428,8 +457,7 @@ public final class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel manageRoomPanel;
-    private javax.swing.JLabel settingLabel;
     // End of variables declaration//GEN-END:variables
-
+    
     
 }
