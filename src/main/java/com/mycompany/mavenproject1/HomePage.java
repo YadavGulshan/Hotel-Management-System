@@ -65,7 +65,8 @@ public final class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Reservation System");
-        setLocation(new java.awt.Point(0, 0));
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
@@ -371,13 +372,13 @@ public final class HomePage extends javax.swing.JFrame {
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
         Checkout checkout = new Checkout();
         checkout.setVisible(true);
-        checkout.setLocationRelativeTo(null);
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
         this.dispose();
         
     }//GEN-LAST:event_checkOutPanelMouseClicked
 
     private void checkInPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInPanelMouseClicked
-        // TODO add your handling code here:
         CheckIn checkin = new CheckIn();
         checkin.setVisible(true);
         checkin.setLocationRelativeTo(null);
@@ -385,13 +386,11 @@ public final class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_checkInPanelMouseClicked
 
     private void manageRoomPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRoomPanelMouseClicked
-        // TODO add your handling code here:
-        
+        ManageRooms_ manageRooms = new ManageRooms_();
     }//GEN-LAST:event_manageRoomPanelMouseClicked
 
     private void settingLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_settingLabelMouseClicked
-        // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_settingLabelMouseClicked
  
     public static void main(String[] args) {
