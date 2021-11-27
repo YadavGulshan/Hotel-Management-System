@@ -87,6 +87,9 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();&#xa;setLocation(dim.width/3-this.getSize().width/3, dim.height/4-this.getSize().height/4);"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

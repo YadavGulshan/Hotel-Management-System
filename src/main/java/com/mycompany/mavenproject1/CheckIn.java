@@ -405,6 +405,7 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void checkAmounButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkAmounButtonActionPerformed
         checkInButton.setEnabled(true);
+        
     }//GEN-LAST:event_checkAmounButtonActionPerformed
 
     private void checkInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInButtonActionPerformed
