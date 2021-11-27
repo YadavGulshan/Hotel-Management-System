@@ -19,6 +19,8 @@ public class Login_Form extends JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation(dim.width/3-this.getSize().width/3, dim.height/4-this.getSize().height/4);
         jPanel2 = new javax.swing.JPanel();
         LoginButton = new javax.swing.JButton();
         Textemail = new javax.swing.JTextField();
@@ -27,8 +29,6 @@ public class Login_Form extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width/3-this.getSize().width/3, dim.height/4-this.getSize().height/4);
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
 
@@ -156,7 +156,6 @@ public class Login_Form extends JFrame {
                       HomePage homePage = new HomePage(Name, this.email, password, isAdmin);
                       homePage.setVisible(true);
                       homePage.setLocationRelativeTo(null);
-//                      this.setVisible(false);
                       this.dispose();
                       System.out.println(Name);
                   }else{
