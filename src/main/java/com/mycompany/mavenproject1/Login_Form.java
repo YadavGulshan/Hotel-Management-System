@@ -146,14 +146,13 @@ public class Login_Form extends JFrame {
                   rs = ps.executeQuery();
                   
                   if(rs.next()){
-                      JOptionPane.showMessageDialog(rootPane, "Login Successful", "Success", 2);
+                      
                        this.id = rs.getString(1);
                        this.Name = rs.getString(2);
                        this.phoneNumber = rs.getString(3);
                        boolean isAdmin = false;
                        this.isAdmin = rs.getString(7) == "1";
-
-                      HomePage homePage = new HomePage(Name, this.email, password, isAdmin);
+                      HomePage homePage = new HomePage(Name, this.email, password, isAdmin, Integer.parseInt(id));
                       homePage.setVisible(true);
                       homePage.setLocationRelativeTo(null);
                       this.dispose();

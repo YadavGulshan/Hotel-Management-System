@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public final class HomePage extends javax.swing.JFrame {
 
     private String user_name;
+    private int E_Id;
     private boolean isAdmin;
     private String Greeting_user;
     private String email, pass;
@@ -16,7 +17,8 @@ public final class HomePage extends javax.swing.JFrame {
         initComponents();
     }
 
-    public HomePage(String name, String email, String pass, boolean isAdmin) {
+    public HomePage(String name, String email, String pass, boolean isAdmin, int E_id) {
+        this.E_Id = E_id;
         this.email = email;
         this.pass = pass;
         this.user_name = name;
@@ -396,10 +398,16 @@ public final class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_manageRoomPanelMouseClicked
 
     private void SettingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingButtonActionPerformed
-        this.dispose();
-        Settings settings = new Settings();
-        settings.setVisible(true);
-        settings.setLocationRelativeTo(null);
+//        this.dispose();
+        if(this.isAdmin)
+        {
+            Settings settings = new Settings();
+            settings.setVisible(true);
+            settings.setLocationRelativeTo(null);
+        }else{
+            JOptionPane.showMessageDialog(this, "Only Admin can Change settings", "Failed", 2);
+
+        }
     }//GEN-LAST:event_SettingButtonActionPerformed
 
     private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed

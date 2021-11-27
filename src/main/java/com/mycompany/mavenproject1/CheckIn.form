@@ -61,7 +61,6 @@
                       <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabel7" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -69,7 +68,6 @@
                       <Component id="PhoneNumber" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="Email" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       <Component id="Address" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                      <Component id="City" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
               </Group>
@@ -110,12 +108,7 @@
                       <Component id="jLabel6" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="Address" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="City" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <EmptySpace pref="110" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -183,21 +176,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="Address">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="12" style="0"/>
-            </Property>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="City"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="City">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Open Sans" size="12" style="0"/>
@@ -285,14 +263,19 @@
                                   <Component id="jLabel2" min="-2" pref="143" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                  <Component id="checkAmounButton" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="checkAmountButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="checkInButton" min="-2" pref="130" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="jLabel9" max="32767" attributes="0"/>
                                           <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
@@ -310,12 +293,14 @@
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="amountField" min="-2" pref="133" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="RoomNumber" max="32767" attributes="0"/>
+                                                  <Component id="amountField" pref="133" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="checkInButton" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -356,12 +341,17 @@
                       <Component id="amountField" min="-2" pref="34" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="checkInButton" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="checkAmounButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="RoomNumber" pref="33" max="32767" attributes="0"/>
+                      <Component id="jLabel10" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="checkAmountButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="checkInButton" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -534,7 +524,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkInButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="checkAmounButton">
+        <Component class="javax.swing.JButton" name="checkAmountButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="39" green="28" red="1b" type="rgb"/>
@@ -548,7 +538,7 @@
             <Property name="text" type="java.lang.String" value="Check Amount  "/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkAmounButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkAmountButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -564,6 +554,22 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="&#x20b9;  "/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Open Sans" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Room Number"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="RoomNumber">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Open Sans" size="14" style="1"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
