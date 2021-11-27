@@ -408,6 +408,7 @@ public class CheckIn extends javax.swing.JFrame {
         this.room = "VIP";
         RadioButtonNormal.setSelected(false);
         RadioButtonEconomy.setSelected(false);
+        RoomNumber.setText("");
         amountField.setText("₹  ");
     }//GEN-LAST:event_RadioButtonVIPActionPerformed
 
@@ -416,10 +417,12 @@ public class CheckIn extends javax.swing.JFrame {
         RadioButtonVIP.setSelected(false);
         RadioButtonEconomy.setSelected(false);
         amountField.setText("₹  ");
+        RoomNumber.setText("");
     }//GEN-LAST:event_RadioButtonNormalActionPerformed
 
     private void RadioButtonEconomyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonEconomyActionPerformed
         amountField.setText("₹  ");
+        RoomNumber.setText("");
         this.room = "Economy";
         RadioButtonNormal.setSelected(false);
         RadioButtonVIP.setSelected(false);
@@ -436,6 +439,7 @@ public class CheckIn extends javax.swing.JFrame {
             ps.setString(1, roomType);
             ps.setString(2, roomCap);
             rs = ps.executeQuery();
+
             if(rs.next()){
                 this.Amount = Integer.parseInt(rs.getString("price"));
                 int roomNumber = Integer.parseInt(rs.getString(1));
@@ -456,42 +460,54 @@ public class CheckIn extends javax.swing.JFrame {
         
         String name = NameTextfield.getText();
         int PhoneNumber;
-        PhoneNumber = Integer.parseInt(this.PhoneNumber.getText());
+
+
         String email = Email.getText();
         String Address = this.Address.getText();
-        
         SimpleDateFormat formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
         String checkInDate = formatter.format(CheckInDate.getDate());
+
+
         int roomNumber = Integer.parseInt(RoomNumber.getText());
 
-        String QueryAdd = "INSERT INTO `Current User`(`Name`, `Phone`, `Email`, `Room Number`, `Address`, `CheckIn`, `Bill Amount`) VALUES (?,?,?,?,?,?,?)";
-        
-        ps = connectDatabase.getConnection().prepareStatement(QueryAdd);
-        ps.setString(1,name);
-        ps.setInt(2,PhoneNumber);
-        ps.setString(3,email);
-        ps.setInt(4,roomNumber);
-        ps.setString(5,Address);
-        ps.setString(6, checkInDate);
-        ps.setInt(7,Amount);
-        ps.executeUpdate();
-        
-        String queryUpdateRoom = "UPDATE `rooms` SET `status`=1 WHERE roomNumber=?";
+        String Phonenum = this.PhoneNumber.getText();
+        if (name.trim().equals("") ||
+                Phonenum.trim().equals("") ||
+                email.trim().equals("") ||
+                Address.trim().equals("")||
+                checkInDate.trim().equals("")
+        ){
+            JOptionPane.showMessageDialog(rootPane, "All the Fields are Required For Check In!", "Empty Fields", 2);
+        }else {
+            PhoneNumber = Integer.parseInt(this.PhoneNumber.getText());
+            String QueryAdd = "INSERT INTO `Current User`(`Name`, `Phone`, `Email`, `Room Number`, `Address`, `CheckIn`, `Bill Amount`) VALUES (?,?,?,?,?,?,?)";
 
-        ps = connectDatabase.getConnection().prepareStatement(queryUpdateRoom);
-        ps.setInt(1,roomNumber);
-        ps.executeUpdate();
+            ps = connectDatabase.getConnection().prepareStatement(QueryAdd);
+            ps.setString(1, name);
+            ps.setInt(2, PhoneNumber);
+            ps.setString(3, email);
+            ps.setInt(4, roomNumber);
+            ps.setString(5, Address);
+            ps.setString(6, checkInDate);
+            ps.setInt(7, Amount);
+            ps.executeUpdate();
 
-        JOptionPane.showMessageDialog(this, "Room Booked For " + name, "Room Booked", JOptionPane.INFORMATION_MESSAGE);
+            String queryUpdateRoom = "UPDATE `rooms` SET `status`=1 WHERE roomNumber=?";
 
+            ps = connectDatabase.getConnection().prepareStatement(queryUpdateRoom);
+            ps.setInt(1, roomNumber);
+            ps.executeUpdate();
 
+            JOptionPane.showMessageDialog(this, "Room Booked For " + name, "Room Booked", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }//GEN-LAST:event_checkInButtonActionPerformed
 
     private void RadioButtonDoubleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonDoubleActionPerformed
         this.capacity = "Double";
         RadioButtonSingle.setSelected(false);
         RadioButtonTriple.setSelected(false);
-
+        RoomNumber.setText("");
         amountField.setText("₹  ");
     }//GEN-LAST:event_RadioButtonDoubleActionPerformed
 
@@ -499,6 +515,7 @@ public class CheckIn extends javax.swing.JFrame {
         this.capacity = "Single";
         RadioButtonTriple.setSelected(false);
         RadioButtonDouble.setSelected(false);
+        RoomNumber.setText("");
         amountField.setText("₹  ");
     }//GEN-LAST:event_RadioButtonSingleActionPerformed
 
@@ -506,6 +523,7 @@ public class CheckIn extends javax.swing.JFrame {
         this.capacity = "Triple";
         RadioButtonSingle.setSelected(false);
         RadioButtonDouble.setSelected(false);
+        RoomNumber.setText("");
         amountField.setText("₹  ");
     }//GEN-LAST:event_RadioButtonTripleActionPerformed
 

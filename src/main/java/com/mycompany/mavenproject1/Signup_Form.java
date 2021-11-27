@@ -160,7 +160,7 @@ public class Signup_Form extends javax.swing.JFrame {
         
         PreparedStatement ps;
 //        ResultSet rs;
-        String query = "INSERT INTO `users`(`name`, `email`, `password`, `phone_number`) VALUES (?,?,?,?)";
+        String query = "INSERT INTO `Receptionist`( `Name`, `Phone`, `Email`, `password`, `Address`) VALUES (?,?,?,?,?)";
         
         // email vaildition
         String regex = "^(.+)@(.+)$";  
@@ -204,9 +204,9 @@ public class Signup_Form extends javax.swing.JFrame {
             ps = connectDatabase.getConnection().prepareStatement(query);
             
             ps.setString(1, name);
-            ps.setString(2, email);
-            ps.setString(3, password);
-            ps.setString(4, phone_number);
+            ps.setString(2, phone_number);
+            ps.setString(3, email);
+            ps.setString(4, password);
             
             if(ps.executeUpdate()>0){
                 

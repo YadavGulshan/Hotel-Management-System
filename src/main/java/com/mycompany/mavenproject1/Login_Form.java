@@ -10,7 +10,6 @@ import javax.swing.*;
 public class Login_Form extends JFrame {
     
     public String id, Name, email, phoneNumber;
-    boolean isAdmin;
     public Login_Form() {
         initComponents();
     }
@@ -151,12 +150,11 @@ public class Login_Form extends JFrame {
                        this.Name = rs.getString(2);
                        this.phoneNumber = rs.getString(3);
                        boolean isAdmin = false;
-                       this.isAdmin = rs.getString(7) == "1";
+                       isAdmin = rs.getInt(7) == 1;
                       HomePage homePage = new HomePage(Name, this.email, password, isAdmin, Integer.parseInt(id));
                       homePage.setVisible(true);
                       homePage.setLocationRelativeTo(null);
                       this.dispose();
-                      System.out.println(Name);
                   }else{
                       JOptionPane.showMessageDialog(rootPane, "Wrong email or password", "Login error", 2);
                   }
