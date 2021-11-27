@@ -27,8 +27,6 @@ public class Login_Form extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setResizable(false);
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width/3-this.getSize().width/3, dim.height/4-this.getSize().height/4);
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
 
