@@ -21,7 +21,6 @@ public final class HomePage extends javax.swing.JFrame {
         this.pass = pass;
         this.user_name = name;
         this.isAdmin = isAdmin;
-
         setUserName(user_name);
         initComponents();
     }
@@ -30,7 +29,7 @@ public final class HomePage extends javax.swing.JFrame {
         this.user_name=user_name; 
         this.Greeting_user = "Hello" + " " + this.user_name;
     }
-
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -57,8 +56,7 @@ public final class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Reservation System");
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width/4-this.getSize().width/4, dim.height/4-this.getSize().height/4);
+        setLocation(new java.awt.Point(0, 0));
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
@@ -372,7 +370,7 @@ public final class HomePage extends javax.swing.JFrame {
         );
 
         pack();
-    }
+    }// </editor-fold>//GEN-END:initComponents
 
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
              
@@ -413,7 +411,7 @@ public final class HomePage extends javax.swing.JFrame {
         login.setVisible(true);
         login.setLocationRelativeTo(null);
         }
-    }
+    }//GEN-LAST:event_LogOutButtonActionPerformed
  
     public static void main(String[] args) {
          try {
@@ -435,7 +433,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
     }
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutButton;
     private javax.swing.JButton SettingButton;
     private javax.swing.JPanel checkInPanel;
