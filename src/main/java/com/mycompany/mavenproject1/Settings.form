@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JPanel" name="jPanel5">
-
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -31,7 +29,7 @@
     </Property>
   </Properties>
   <SyntheticProperties>
-    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>  
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
@@ -45,7 +43,6 @@
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
-
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
@@ -70,7 +67,6 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel1">
-
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -90,7 +86,6 @@
           <Color blue="fc" green="e0" red="ad" type="rgb"/>
         </Property>
       </Properties>
-
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
@@ -125,7 +120,6 @@
               <Color blue="39" green="28" red="1b" type="rgb"/>
             </Property>
           </Properties>
-
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -167,7 +161,6 @@
               <Color blue="39" green="28" red="1b" type="rgb"/>
             </Property>
           </Properties>
-
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -206,10 +199,10 @@
         <Container class="javax.swing.JPanel" name="jPanel7">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+  
               <Color blue="39" green="28" red="1b" type="rgb"/>
             </Property>
           </Properties>
-
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
@@ -228,7 +221,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
-            </DimensionLayout>
+            </DimensionLayout>  
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel1">
