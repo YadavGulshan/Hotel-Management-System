@@ -163,7 +163,7 @@ public class Checkout extends javax.swing.JFrame {
         jLabel8.setToolTipText("");
 
         jLabel9.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jLabel9.setText("Room Type");
+        jLabel9.setText("Room Number");
 
         jLabel10.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel10.setText("Total Amount");
