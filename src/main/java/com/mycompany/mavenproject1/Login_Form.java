@@ -151,7 +151,7 @@ public class Login_Form extends JFrame {
                        this.phoneNumber = rs.getString(3);
                        boolean isAdmin = false;
                        isAdmin = rs.getInt(7) == 1;
-                      HomePage homePage = new HomePage(Name, this.email, password, isAdmin, Integer.parseInt(id));
+                      HomePage homePage = new HomePage(Name, isAdmin, Integer.parseInt(id));
                       homePage.setVisible(true);
                       homePage.setLocationRelativeTo(null);
                       this.dispose();

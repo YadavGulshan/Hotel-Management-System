@@ -3,6 +3,7 @@ package com.mycompany.mavenproject1;
 
 
 import javax.swing.JOptionPane;
+import java.awt.*;
 
 public final class HomePage extends javax.swing.JFrame {
 
@@ -10,16 +11,18 @@ public final class HomePage extends javax.swing.JFrame {
     private int E_Id;
     private boolean isAdmin;
     private String Greeting_user;
-    private String email, pass;
+//    private String email, pass;
 
     public HomePage() {
         initComponents();
     }
 
-    public HomePage(String name, String email, String pass, boolean isAdmin, int E_id) {
+//    public HomePage(String name, String email, String pass, boolean isAdmin, int E_id) {
+
+    public HomePage(String name, boolean isAdmin, int E_id) {
         this.E_Id = E_id;
-        this.email = email;
-        this.pass = pass;
+//        this.email = email;
+//        this.pass = pass;
         this.user_name = name;
         this.isAdmin = isAdmin;
         setUserName(user_name);
@@ -64,7 +67,7 @@ public final class HomePage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
 
-        greeting_user.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        greeting_user.setFont(new java.awt.Font("Open Sans", Font.BOLD, 18)); // NOI18N
         greeting_user.setForeground(new java.awt.Color(255, 255, 255));
         greeting_user.setLabelFor(greeting_user);
         greeting_user.setText(this.Greeting_user);
