@@ -86,7 +86,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        LogOutButton.setBackground(new java.awt.Color(204, 0, 0));
+        LogOutButton.setBackground(new java.awt.Color(102, 0, 0));
         LogOutButton.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         LogOutButton.setForeground(new java.awt.Color(255, 255, 255));
         LogOutButton.setText("Logout");
