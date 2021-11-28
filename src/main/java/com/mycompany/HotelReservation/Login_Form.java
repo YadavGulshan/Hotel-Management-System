@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.HotelReservation;
 import java.awt.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

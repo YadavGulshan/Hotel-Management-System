@@ -1,5 +1,5 @@
 
-package com.mycompany.mavenproject1;
+package com.mycompany.HotelReservation;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -272,11 +272,7 @@ public class CheckIn extends javax.swing.JFrame {
         checkInButton.setEnabled(false);
         checkInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                try {
-                    checkInButtonActionPerformed(evt);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                checkInButtonActionPerformed(evt);
             }
         });
 
