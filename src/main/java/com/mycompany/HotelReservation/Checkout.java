@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.HotelReservation;
 
 import javax.swing.*;
 import java.time.LocalDate;
@@ -419,10 +419,7 @@ public class Checkout extends javax.swing.JFrame {
                 Checkoutdate.setText("");
                 NumberOfDays.setText("");
                 TotalAmount.setText("");
-
             }
-
-
         } catch ( Exception ex) {
 
             Logger.getLogger(Checkout.class.getName()).log(Level.SEVERE, null, ex);

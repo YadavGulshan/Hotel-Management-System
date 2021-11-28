@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package com.mycompany.HotelReservation;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

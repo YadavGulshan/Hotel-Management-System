@@ -1,5 +1,5 @@
 
-package com.mycompany.mavenproject1;
+package com.mycompany.HotelReservation;
 
 
 import javax.swing.JOptionPane;
@@ -67,7 +67,7 @@ public final class HomePage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(27, 40, 57));
 
-        greeting_user.setFont(new java.awt.Font("Open Sans", Font.BOLD, 18)); // NOI18N
+        greeting_user.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         greeting_user.setForeground(new java.awt.Color(255, 255, 255));
         greeting_user.setLabelFor(greeting_user);
         greeting_user.setText(this.Greeting_user);
@@ -76,7 +76,6 @@ public final class HomePage extends javax.swing.JFrame {
         SettingButton.setBackground(new java.awt.Color(173, 224, 252));
         SettingButton.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         SettingButton.setForeground(new java.awt.Color(27, 40, 57));
-        SettingButton.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/icons8-settings.png")); // NOI18N
         SettingButton.setText("Settings");
         SettingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +83,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        LogOutButton.setBackground(new java.awt.Color(204, 0, 0));
+        LogOutButton.setBackground(new java.awt.Color(102, 0, 0));
         LogOutButton.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         LogOutButton.setForeground(new java.awt.Color(255, 255, 255));
         LogOutButton.setText("Logout");
@@ -159,7 +158,6 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(187, 127));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/manage room.png")); // NOI18N
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -217,7 +215,6 @@ public final class HomePage extends javax.swing.JFrame {
         });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -278,7 +275,6 @@ public final class HomePage extends javax.swing.JFrame {
         });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -319,7 +315,6 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel9.setText("Check Out");
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/check-out.png")); // NOI18N
 
         javax.swing.GroupLayout checkOutPanelLayout = new javax.swing.GroupLayout(checkOutPanel);
         checkOutPanel.setLayout(checkOutPanelLayout);
