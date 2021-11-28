@@ -5,7 +5,7 @@
     <artifactId>mavenproject1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
-        <plugins>
+<!--        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -14,7 +14,7 @@
                     <target>17</target>
                 </configuration>
             </plugin>
-        </plugins>
+        </plugins>-->
     </build>
     <packaging>jar</packaging>
     <repositories>
