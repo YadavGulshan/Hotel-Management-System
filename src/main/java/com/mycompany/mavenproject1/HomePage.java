@@ -3,7 +3,7 @@ package com.mycompany.mavenproject1;
 
 
 import java.awt.*;
-import javax.swing.JOptionPane;
+import javax.swing.*;
 
 public final class HomePage extends javax.swing.JFrame {
 
@@ -101,11 +101,7 @@ public final class HomePage extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(173, 224, 252));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-
-        jPanel4.setBackground(new java.awt.Color(147, 201, 253));
-        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        SetBackground(jPanel2, jPanel4);
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel2.setText("Name");
@@ -185,18 +181,14 @@ public final class HomePage extends javax.swing.JFrame {
                 .addGap(24, 24, 24))
         );
 
-        jPanel3.setBackground(new java.awt.Color(173, 224, 252));
-        jPanel3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-
-        manageRoomPanel.setBackground(new java.awt.Color(147, 201, 253));
-        manageRoomPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        SetBackground(jPanel3, manageRoomPanel);
         manageRoomPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 manageRoomPanelMouseClicked(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png")); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel6.setText("Manage Rooms");
@@ -258,7 +250,7 @@ public final class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png")); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel7.setText("Check In");
@@ -295,7 +287,7 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel9.setText("Check Out");
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/check-out.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/mavenproject1/Images/check-out.png")); // NOI18N
 
         javax.swing.GroupLayout checkOutPanelLayout = new javax.swing.GroupLayout(checkOutPanel);
         checkOutPanel.setLayout(checkOutPanelLayout);
@@ -373,6 +365,14 @@ public final class HomePage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private static void SetBackground(JPanel jPanel3, JPanel manageRoomPanel) {
+        jPanel3.setBackground(new Color(173, 224, 252));
+        jPanel3.setBorder(new javax.swing.border.LineBorder(new Color(0, 0, 0), 2, true));
+
+        manageRoomPanel.setBackground(new Color(147, 201, 253));
+        manageRoomPanel.setBorder(new javax.swing.border.LineBorder(new Color(0, 0, 0), 2, true));
+    }
 
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
              

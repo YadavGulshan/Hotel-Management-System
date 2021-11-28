@@ -8,7 +8,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mavenproject1" />
-        <module name="Netbean" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
