@@ -116,7 +116,7 @@
               <Color blue="39" green="28" red="1b" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/icons8-settings.png"/>
+              <Image iconType="2" name="src/main/java/com/mycompany/mavenproject1/Images/icons8-settings.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Settings"/>
           </Properties>
@@ -287,7 +287,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/manage room.png"/>
+                  <Image iconType="2" name="src/main/java/com/mycompany/mavenproject1/Images/manage room.png"/>
                 </Property>
                 <Property name="verticalAlignment" type="int" value="3"/>
               </Properties>
@@ -384,7 +384,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png"/>
+                  <Image iconType="2" name="src/main/java/com/mycompany/mavenproject1/Images/meeting-room.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -496,7 +496,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png"/>
+                  <Image iconType="2" name="src/main/java/com/mycompany/mavenproject1/Images/check-in-desk.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -565,7 +565,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/rahul/Desktop/Netbean/src/main/java/com/mycompany/mavenproject1/Images/check-out.png"/>
+                  <Image iconType="2" name="src/main/java/com/mycompany/mavenproject1/Images/check-out.png"/>
                 </Property>
               </Properties>
             </Component>
