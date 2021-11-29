@@ -194,7 +194,6 @@ public class BillDetails extends javax.swing.JFrame {
         try{
            ps =connectDatabase.getConnection().prepareStatement(queryGetUser);
            rs = ps.executeQuery();
-           ResultSetMetaData RSD = rs.getMetaData();
 //           final int columnCount = RSD.getColumnCount();
            int i = 0;
            while(rs.next()){
