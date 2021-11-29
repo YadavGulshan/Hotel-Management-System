@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.util.Date;
 
 
-public class InvoiceGenerator2 {
+public class InvoiceGenerator {
     private static int Userid;
     private static String Username ;
     private static int UserPhone;
@@ -41,7 +41,7 @@ public class InvoiceGenerator2 {
 
 
     // Constructor.
-    InvoiceGenerator2(int id, String Name, int Phone, String Email, int Room, String Type, String Bed, int Price, String CheckinDetails, String CheckOutDetails) {
+    InvoiceGenerator(int id, String Name, int Phone, String Email, int Room, String Type, String Bed, int Price, String CheckinDetails, String CheckOutDetails) {
         Userid = id;
         Username = Name;
         UserEmail = Email;
