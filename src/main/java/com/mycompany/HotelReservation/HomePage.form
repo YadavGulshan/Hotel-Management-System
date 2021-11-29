@@ -36,6 +36,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="jPanel3" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -87,9 +88,6 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Open Sans" size="18" style="1"/>
             </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="greeting_user"/>
@@ -114,7 +112,7 @@
               <Color blue="39" green="28" red="1b" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/mycompany/HotelReservation/Images/icons8-settings.png"/>
+              <Image iconType="2" name="/home/Gulshan/Projects/AndroidStudioProjects/intellij/Netbean/src/main/java/com/mycompany/HotelReservation/Images/icons8-settings.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Settings"/>
           </Properties>
@@ -210,7 +208,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel4" max="32767" attributes="0"/>
-                          <Component id="jLabel6" pref="184" max="32767" attributes="0"/>
+                          <Component id="jLabel6" pref="172" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -233,7 +231,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/HotelReservation/Images/meeting-room.png"/>
+                  <Image iconType="2" name="/home/Gulshan/Projects/AndroidStudioProjects/intellij/Netbean/src/main/java/com/mycompany/HotelReservation/Images/meeting-room.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -271,7 +269,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel7" alignment="0" pref="190" max="32767" attributes="0"/>
+                          <Component id="jLabel7" alignment="0" pref="184" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel5" max="32767" attributes="0"/>
@@ -285,7 +283,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel5" pref="125" max="32767" attributes="0"/>
+                      <Component id="jLabel5" pref="113" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -298,7 +296,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/HotelReservation/Images/check-in-desk.png"/>
+                  <Image iconType="2" name="/home/Gulshan/Projects/AndroidStudioProjects/intellij/Netbean/src/main/java/com/mycompany/HotelReservation/Images/check-in-desk.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -338,7 +336,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel10" max="32767" attributes="0"/>
-                          <Component id="jLabel9" pref="184" max="32767" attributes="0"/>
+                          <Component id="jLabel9" pref="172" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -348,7 +346,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel10" pref="138" max="32767" attributes="0"/>
+                      <Component id="jLabel10" pref="126" max="32767" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" pref="46" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -370,7 +368,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/HotelReservation/Images/check-out.png"/>
+                  <Image iconType="2" name="/home/Gulshan/Projects/AndroidStudioProjects/intellij/Netbean/src/main/java/com/mycompany/HotelReservation/Images/check-out.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -401,7 +399,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="jLabel11" max="32767" attributes="0"/>
-                          <Component id="jLabel8" pref="184" max="32767" attributes="0"/>
+                          <Component id="jLabel8" pref="172" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -411,7 +409,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel11" max="32767" attributes="0"/>
+                      <Component id="jLabel11" pref="104" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -436,7 +434,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/mycompany/HotelReservation/Images/manage room.png"/>
+                  <Image iconType="2" name="/home/Gulshan/Projects/AndroidStudioProjects/intellij/Netbean/src/main/java/com/mycompany/HotelReservation/Images/manage room.png"/>
                 </Property>
               </Properties>
             </Component>
