@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2021 at 01:04 PM
+-- Generation Time: Nov 29, 2021 at 01:38 PM
 -- Server version: 10.6.5-MariaDB
 -- PHP Version: 8.0.12
 
@@ -78,8 +78,8 @@ CREATE TABLE `Receptionist` (
   `Name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_Admin` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -89,7 +89,8 @@ CREATE TABLE `Receptionist` (
 
 INSERT INTO `Receptionist` (`E_id`, `Name`, `Phone`, `Email`, `password`, `Address`, `is_Admin`) VALUES
 (69, 'Admin', 'admin', 'admin', 'admin', 'Admin', 1),
-(101, 'rahul', '1234567890', 'rahul@mail.com', '1234', 'Bhiwandi thane', 0);
+(101, 'rahul', '1234567890', 'rahul@mail.com', '1234', 'Bhiwandi thane', 0),
+(102, 'Raj', '1234567890', 'raj@mail.com', 'raj123', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,7 @@ ALTER TABLE `Current User`
 -- AUTO_INCREMENT for table `Receptionist`
 --
 ALTER TABLE `Receptionist`
-  MODIFY `E_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `E_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `rooms`

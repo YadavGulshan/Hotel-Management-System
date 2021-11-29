@@ -90,7 +90,7 @@ public final class HomePage extends javax.swing.JFrame {
         SettingButton.setBackground(new java.awt.Color(173, 224, 252));
         SettingButton.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         SettingButton.setForeground(new java.awt.Color(27, 40, 57));
-//        SettingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/home/Gulshan/Projects/AndroidStudioProjects/intellij/Netbean/src/main/java/com/mycompany/HotelReservation/Images/icons8-settings.png"))); // NOI18N
+//        SettingButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("com/mycompany/HotelReservation/Images/icons8-settings.png"))); // NOI18N
         SettingButton.setText("Settings");
         SettingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +147,7 @@ public final class HomePage extends javax.swing.JFrame {
         });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-//        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("src/main/java/com/mycompany/HotelReservation/Images/meeting-room.png"))); // NOI18N
+//        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("com/mycompany/HotelReservation/Images/meeting-room.png"))); // NOI18N
         jLabel6.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Manage Rooms");
@@ -183,7 +183,7 @@ public final class HomePage extends javax.swing.JFrame {
         });
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-//        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/HotelReservation/Images/check-in-desk.png"))); // NOI18N
+//        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("com/mycompany/HotelReservation/Images/check-in-desk.png"))); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -225,7 +225,7 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel9.setText("Check Out");
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-//        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/HotelReservation/Images/check-out.png"))); // NOI18N
+//        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("com/mycompany/HotelReservation/Images/check-out.png"))); // NOI18N
 
         javax.swing.GroupLayout checkOutPanelLayout = new javax.swing.GroupLayout(checkOutPanel);
         checkOutPanel.setLayout(checkOutPanelLayout);
@@ -263,7 +263,7 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel8.setPreferredSize(new java.awt.Dimension(187, 127));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-//        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/HotelReservation/Images/manage room.png"))); // NOI18N
+//        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("com/mycompany/HotelReservation/Images/manage room.png"))); // NOI18N
 
         javax.swing.GroupLayout ViewCustomersPanelLayout = new javax.swing.GroupLayout(ViewCustomersPanel);
         ViewCustomersPanel.setLayout(ViewCustomersPanelLayout);
