@@ -1,8 +1,5 @@
 package com.mycompany.HotelReservation;
 
-
-
-// this is for database use 
 import java.awt.*;
 import java.util.regex.*;
 import java.sql.PreparedStatement;
@@ -14,13 +11,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Signup_Form extends javax.swing.JFrame {
-
- 
     public Signup_Form() {
         initComponents();
     }
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,7 +26,7 @@ public class Signup_Form extends javax.swing.JFrame {
         TextPhone = new javax.swing.JTextField();
         TextName = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SignUp");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
@@ -131,22 +124,14 @@ public class Signup_Form extends javax.swing.JFrame {
         String phone_number = TextPhone.getText();
         String email = TextEmail.getText();
         String password = String.valueOf(TextPassword.getText());
-        
-        
         PreparedStatement ps;
 //        ResultSet rs;
-        String query = "INSERT INTO `Receptionist`( `Name`, `Phone`, `Email`, `password`, `Address`) VALUES (?,?,?,?,?)";
-        
-        // email vaildition
-        String regex = "^(.+)@(.+)$";  
-
+        String query = "INSERT INTO `Receptionist`( `Name`, `Phone`, `Email`, `password`) VALUES (?,?,?,?)";
+        // email validation
+        String regex = "^(.+)@(.+)$";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);  
-        
-        
-        
+        Matcher matcher = pattern.matcher(email);
         //check if the input is empty
-        System.out.print(phone_number.getClass().getSimpleName());
 
         if(name.trim().equals(""))
         {
@@ -154,7 +139,7 @@ public class Signup_Form extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    // checking wheather the given phone number is a number or not  
+    // checking whether the given phone number is a number or not
         else if(phone_number.trim().equals(""))
         {
         	
@@ -162,7 +147,7 @@ public class Signup_Form extends javax.swing.JFrame {
            
         }
 
-        // Checking wheather the given email is email or not 
+        // Checking whether the given email is email or not
 
         else if(email.trim().equals("")||!matcher.matches())
         {
@@ -186,28 +171,18 @@ public class Signup_Form extends javax.swing.JFrame {
             if(ps.executeUpdate()>0){
                 
             JOptionPane.showMessageDialog(null, "SignUp Successful");
-            
-            
-
             }
 	        } catch (SQLException ex) {
 	            JOptionPane.showMessageDialog(rootPane, "Email or Phone Already Used", "User exist", 2);
-	            email = "";
-	            phone_number = "";
 	            Logger.getLogger(Signup_Form.class.getName()).log(Level.SEVERE, null, ex);
 	            
 	        }
-            
         }
-            
-       }
-
-            
-        
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

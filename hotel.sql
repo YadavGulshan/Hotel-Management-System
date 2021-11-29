@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 29, 2021 at 09:35 AM
+-- Generation Time: Nov 29, 2021 at 01:38 PM
 -- Server version: 10.6.5-MariaDB
 -- PHP Version: 8.0.12
 
@@ -38,14 +38,6 @@ CREATE TABLE `Current User` (
   `Bill Amount` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `Current User`
---
-
-INSERT INTO `Current User` (`Id`, `Room Number`, `Name`, `Phone`, `Email`, `Address`, `CheckIn`, `Bill Amount`) VALUES
-(6, '202', 'Ramesh Mahajan', '1234567890', 'ramesh@mail.com', 'Pune, Maharashtra', '2021-11-29', '2000'),
-(7, '122', 'Raja Ram Bhanushali', '9283028434', 'raja@mail.com', 'Jaipur, Rajasthan', '2021-11-29', '5000');
-
 -- --------------------------------------------------------
 
 --
@@ -55,7 +47,7 @@ INSERT INTO `Current User` (`Id`, `Room Number`, `Name`, `Phone`, `Email`, `Addr
 CREATE TABLE `History` (
   `Id` int(11) NOT NULL,
   `Name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Phone` int(11) NOT NULL,
+  `Phone` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `RoomNumber` int(200) NOT NULL,
@@ -69,7 +61,11 @@ CREATE TABLE `History` (
 --
 
 INSERT INTO `History` (`Id`, `Name`, `Phone`, `Email`, `Address`, `RoomNumber`, `Check In Date`, `Check out date`, `Bill amount`) VALUES
-(5, 'Ramesh', 1234567890, 'ramesh@mail.com', 'Thane, Maharastra', 101, '2021-11-28 00:00:00', '2021-11-28 00:00:00', 2000);
+(5, 'Ramesh', '1234567890', 'ramesh@mail.com', 'Thane, Maharastra', 101, '2021-11-28 00:00:00', '2021-11-28 00:00:00', 2000),
+(6, 'Ramesh Mahajan', '1234567890', 'ramesh@mail.com', 'Pune, Maharashtra', 202, '2021-11-29 00:00:00', '2021-11-29 00:00:00', 0),
+(8, 'Rahul', '1234567890', 'rahul@mail.com', 'Thane', 112, '2021-11-28 00:00:00', '2021-11-29 00:00:00', 3000),
+(9, 'Raj', '1234567890', 'raj@mail.com', 'thane', 106, '2021-11-28 00:00:00', '2021-11-29 00:00:00', 2000),
+(10, 'Ram', '1234567890', 'ram@mail.com', 'ram', 122, '2021-11-28 00:00:00', '2021-11-29 00:00:00', 5000);
 
 -- --------------------------------------------------------
 
@@ -82,8 +78,8 @@ CREATE TABLE `Receptionist` (
   `Name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_Admin` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -93,7 +89,8 @@ CREATE TABLE `Receptionist` (
 
 INSERT INTO `Receptionist` (`E_id`, `Name`, `Phone`, `Email`, `password`, `Address`, `is_Admin`) VALUES
 (69, 'Admin', 'admin', 'admin', 'admin', 'Admin', 1),
-(101, 'rahul', '1234567890', 'rahul@mail.com', '1234', 'Bhiwandi thane', 0);
+(101, 'rahul', '1234567890', 'rahul@mail.com', '1234', 'Bhiwandi thane', 0),
+(102, 'Raj', '1234567890', 'raj@mail.com', 'raj123', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -131,12 +128,12 @@ INSERT INTO `rooms` (`roomNumber`, `roomType`, `bed`, `price`, `status`) VALUES
 (119, 'VIP', 'Single', 3000, 0),
 (120, 'VIP', 'Double', 4000, 0),
 (121, 'VIP', 'Double', 4000, 0),
-(122, 'VIP', 'Triple', 5000, 1),
+(122, 'VIP', 'Triple', 5000, 0),
 (123, 'VIP', 'Triple', 5000, 0),
 (124, 'Normal', 'Triple', 3000, 0),
 (125, 'Normal', 'Triple', 3000, 0),
 (201, 'Normal', 'Single', 1000, 0),
-(202, 'Normal', 'Double', 2000, 1),
+(202, 'Normal', 'Double', 2000, 0),
 (203, 'Normal', 'Double', 2000, 0);
 
 --
@@ -176,13 +173,13 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `Current User`
 --
 ALTER TABLE `Current User`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `Receptionist`
 --
 ALTER TABLE `Receptionist`
-  MODIFY `E_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `E_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT for table `rooms`

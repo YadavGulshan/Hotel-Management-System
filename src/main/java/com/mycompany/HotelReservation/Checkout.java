@@ -79,7 +79,7 @@ public class Checkout extends javax.swing.JFrame {
         CheckOut = new javax.swing.JButton();
         UroomNumber = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Check Out");
         setBounds(new java.awt.Rectangle(0, 0, 950, 650));
         setMinimumSize(new java.awt.Dimension(950, 550));
@@ -354,7 +354,7 @@ public class Checkout extends javax.swing.JFrame {
             if(rs.next()){
                 this.userID = rs.getInt("Id");
                 this.UserName = rs.getString("Name");
-                this.UserPhoneNumber = rs.getInt("Phone");
+                this.UserPhoneNumber = Long.parseLong(rs.getString("Phone"));
                 this.UserEmail = rs.getString("Email");
                 this.UserRoomNumber = Integer.parseInt(rs.getString("Room Number"));
                 this.UserCheckIn = rs.getString("CheckIn");
@@ -437,7 +437,7 @@ public class Checkout extends javax.swing.JFrame {
                 ps = connectDatabase.getConnection().prepareStatement(queryHistory);
                 ps.setInt(1, userID);
                 ps.setString(2, UserName);
-                ps.setInt(3, Integer.parseInt(String.valueOf(UserPhoneNumber)));
+                ps.setString(3, String.valueOf(UserPhoneNumber));
                 ps.setString(4, UserEmail);
                 ps.setString(5, UserAddress);
                 ps.setString(6, UroomNumber.getText());
