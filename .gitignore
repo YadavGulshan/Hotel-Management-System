@@ -2,7 +2,7 @@
 target/classes/com/mycompany/mavenproject1/
 .idea/misc.xml
 *.pdf
-connectDatabase.java
+src/main/java/com/mycompany/HotelReservation/connectDatabase.java
 pom.xml
 target/classes/.netbeans_automatic_build
 target/test-classes/.netbeans_automatic_build
