@@ -16,7 +16,7 @@ import java.util.Date;
 public class InvoiceGenerator {
     private static int Userid;
     private static String Username ;
-    private static int UserPhone;
+    private static long UserPhone;
     private static String UserEmail;
 
 
@@ -43,7 +43,7 @@ public class InvoiceGenerator {
     // Constructor.
     InvoiceGenerator(int id,
             String Name, 
-            int Phone,
+            long Phone,
             String Email, 
             int Room, 
             String Type, 
@@ -62,7 +62,7 @@ public class InvoiceGenerator {
         CalculatedPrice = Price;
         UserCheckinDetails = CheckinDetails;
         UserCheckOutDetails = CheckOutDetails;
-        main();
+//        main();
     }
     private  static final String PATH = "out/invoices/"+Userid+".pdf";
     private static final File FILE = new File(PATH);

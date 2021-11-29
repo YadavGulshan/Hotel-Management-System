@@ -28,7 +28,7 @@ public class Checkout extends javax.swing.JFrame {
     private int UserRoomNumber;
     int userID;
     String UserName;
-    int UserPhoneNumber;
+    long UserPhoneNumber;
     String UserEmail;
     String UserCheckIn;
     String UserCheckOut;
@@ -437,7 +437,7 @@ public class Checkout extends javax.swing.JFrame {
                 ps = connectDatabase.getConnection().prepareStatement(queryHistory);
                 ps.setInt(1, userID);
                 ps.setString(2, UserName);
-                ps.setInt(3, UserPhoneNumber);
+                ps.setInt(3, Integer.parseInt(String.valueOf(UserPhoneNumber)));
                 ps.setString(4, UserEmail);
                 ps.setString(5, UserAddress);
                 ps.setString(6, UroomNumber.getText());
