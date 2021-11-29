@@ -211,10 +211,10 @@ public class InvoiceGenerator {
             dataCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(dataCell);
 
-            dataCell = new PdfPCell(new Phrase(CalculatedPrice));
+            dataCell = new PdfPCell(new Phrase(String.valueOf(CalculatedPrice)));
             dataCell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(dataCell);
-
+//                table.addCell(String.valueOf(CalculatedPrice));
 
             document.add(table);
         } catch (DocumentException e){
