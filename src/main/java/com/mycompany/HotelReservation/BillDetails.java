@@ -159,7 +159,10 @@ public class BillDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_SearchActionPerformed
 
     private void backToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToHomeActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        HomePage homePage = new HomePage();
+        homePage.setVisible(true);
+        homePage.setLocationRelativeTo(null);
     }//GEN-LAST:event_backToHomeActionPerformed
 
     /**

@@ -1,6 +1,7 @@
 
 package com.mycompany.HotelReservation;
 
+import java.awt.HeadlessException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
@@ -453,57 +454,64 @@ public class CheckIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_checkAmountButtonActionPerformed
 
-    private void checkInButtonActionPerformed(ActionEvent evt) throws SQLException {//GEN-FIRST:event_checkInButtonActionPerformed
-        
-        String name = NameTextfield.getText();
-        String PhoneNumber;
+    private void checkInButtonActionPerformed(ActionEvent evt)  {//GEN-FIRST:event_checkInButtonActionPerformed
+        try{
 
 
-        String email = Email.getText();
-        String Address = this.Address.getText();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
-        String checkInDate = formatter.format(CheckInDate.getDate());
+            String name = NameTextfield.getText();
+            String PhoneNumber;
 
 
-        int roomNumber = Integer.parseInt(RoomNumber.getText());
+            String email = Email.getText();
+            String Address = this.Address.getText();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
+            String checkInDate = formatter.format(CheckInDate.getDate());
 
-        String Phonenum = this.PhoneNumber.getText();
-        if (name.trim().equals("") ||
-                Phonenum.trim().equals("") ||
-                email.trim().equals("") ||
-                Address.trim().equals("")||
-                checkInDate.trim().equals("")
-        ){
-            JOptionPane.showMessageDialog(rootPane, "All the Fields are Required For Check In!", "Empty Fields", 2);
-        }else {
 
-            PhoneNumber = Phonenum;
-            String QueryAdd = "INSERT INTO `Current User`(`Name`, `Phone`, `Email`, `Room Number`, `Address`, `CheckIn`, `Bill Amount`) VALUES (?,?,?,?,?,?,?)";
+            int roomNumber = Integer.parseInt(RoomNumber.getText());
 
-            ps = connectDatabase.getConnection().prepareStatement(QueryAdd);
-            ps.setString(1, name);
-            ps.setString(2, PhoneNumber);
-            ps.setString(3, email);
-            ps.setInt(4, roomNumber);
-            ps.setString(5, Address);
-            ps.setString(6, checkInDate);
-            ps.setInt(7, Amount);
-            ps.executeUpdate();
+            String Phonenum = this.PhoneNumber.getText();
 
-            String queryUpdateRoom = "UPDATE `rooms` SET `status`=1 WHERE roomNumber=?";
+            if (name.trim().equals("") ||
+                    Phonenum.trim().equals("") ||
+                    email.trim().equals("") ||
+                    Address.trim().equals("")||
+                    checkInDate.trim().equals("")
+            ){
+                JOptionPane.showMessageDialog(rootPane, "All the Fields are Required For Check In!", "Empty Fields", 2);
+            }else {
 
-            ps = connectDatabase.getConnection().prepareStatement(queryUpdateRoom);
-            ps.setInt(1, roomNumber);
-            ps.executeUpdate();
+                PhoneNumber = Phonenum;
+                String QueryAdd = "INSERT INTO `Current User`(`Name`, `Phone`, `Email`, `Room Number`, `Address`, `CheckIn`, `Bill Amount`) VALUES (?,?,?,?,?,?,?)";
 
-            JOptionPane.showMessageDialog(this, "Room Booked For " + name, "Room Booked", JOptionPane.INFORMATION_MESSAGE);
-            this.Address.setText("");
-            Email.setText("");
-            NameTextfield.setText("");
-            RoomNumber.setText("");
-            amountField.setText("₹  ");
-            this.PhoneNumber.setText("");
+                ps = connectDatabase.getConnection().prepareStatement(QueryAdd);
+                ps.setString(1, name);
+                ps.setString(2, PhoneNumber);
+                ps.setString(3, email);
+                ps.setInt(4, roomNumber);
+                ps.setString(5, Address);
+                ps.setString(6, checkInDate);
+                ps.setInt(7, Amount);
+                ps.executeUpdate();
 
+                String queryUpdateRoom = "UPDATE `rooms` SET `status`=1 WHERE roomNumber=?";
+
+                ps = connectDatabase.getConnection().prepareStatement(queryUpdateRoom);
+                ps.setInt(1, roomNumber);
+                ps.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Room Booked For " + name, "Room Booked", JOptionPane.INFORMATION_MESSAGE);
+                this.Address.setText("");
+                Email.setText("");
+                NameTextfield.setText("");
+                RoomNumber.setText("");
+                amountField.setText("₹  ");
+                this.PhoneNumber.setText("");
+            }
+            
+        } catch(SQLException e){
+            Logger.getLogger(Checkout.class.getName()).log(Level.SEVERE, null, e);
+            
         }
     }//GEN-LAST:event_checkInButtonActionPerformed
 

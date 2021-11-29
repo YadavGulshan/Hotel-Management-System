@@ -3,7 +3,6 @@ package com.mycompany.HotelReservation;
 
 
 import javax.swing.JOptionPane;
-import java.awt.*;
 
 public final class HomePage extends javax.swing.JFrame {
 
@@ -14,12 +13,14 @@ public final class HomePage extends javax.swing.JFrame {
 //    private String email, pass;
 
     public HomePage() {
-        initComponents();
+        initComponents();        
+        setUserName(user_name);
     }
 
 //    public HomePage(String name, String email, String pass, boolean isAdmin, int E_id) {
 
     public HomePage(String name, boolean isAdmin, int E_id) {
+        
         this.E_Id = E_id;
 //        this.email = email;
 //        this.pass = pass;
@@ -44,7 +45,7 @@ public final class HomePage extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        ViewCustomersPanel = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -149,8 +150,13 @@ public final class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel5.setBackground(new java.awt.Color(147, 201, 253));
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        ViewCustomersPanel.setBackground(new java.awt.Color(147, 201, 253));
+        ViewCustomersPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        ViewCustomersPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ViewCustomersPanelMouseClicked(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -160,20 +166,20 @@ public final class HomePage extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout ViewCustomersPanelLayout = new javax.swing.GroupLayout(ViewCustomersPanel);
+        ViewCustomersPanel.setLayout(ViewCustomersPanelLayout);
+        ViewCustomersPanelLayout.setHorizontalGroup(
+            ViewCustomersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewCustomersPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(ViewCustomersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+        ViewCustomersPanelLayout.setVerticalGroup(
+            ViewCustomersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ViewCustomersPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 16, Short.MAX_VALUE)
@@ -190,7 +196,7 @@ public final class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ViewCustomersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -200,7 +206,7 @@ public final class HomePage extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(165, 165, 165)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ViewCustomersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(151, Short.MAX_VALUE))
         );
 
@@ -396,7 +402,6 @@ public final class HomePage extends javax.swing.JFrame {
         checkout.setVisible(true);
         checkout.setLocationRelativeTo(null);
         this.dispose();
-        
     }//GEN-LAST:event_checkOutPanelMouseClicked
 
     private void checkInPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInPanelMouseClicked
@@ -434,6 +439,15 @@ public final class HomePage extends javax.swing.JFrame {
             login.setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_LogOutButtonActionPerformed
+
+    private void ViewCustomersPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewCustomersPanelMouseClicked
+
+        this.dispose();
+        BillDetails billDetails = new BillDetails();
+        billDetails.setVisible(true);
+        billDetails.setLocationRelativeTo(null);
+
+    }//GEN-LAST:event_ViewCustomersPanelMouseClicked
  
     public static void main(String[] args) {
          try {
@@ -449,15 +463,14 @@ public final class HomePage extends javax.swing.JFrame {
          
         /* Create and display the form */
         
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomePage().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(() -> {
+            new HomePage().setVisible(true);
+         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutButton;
     private javax.swing.JButton SettingButton;
+    private javax.swing.JPanel ViewCustomersPanel;
     private javax.swing.JPanel checkInPanel;
     private javax.swing.JPanel checkOutPanel;
     private javax.swing.JLabel greeting_user;
@@ -477,7 +490,6 @@ public final class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel manageRoomPanel;
     // End of variables declaration//GEN-END:variables
     
