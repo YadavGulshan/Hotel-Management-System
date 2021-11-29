@@ -16,7 +16,7 @@ import java.util.Date;
 public class InvoiceGenerator {
     private static int Userid;
     private static String Username ;
-    private static int UserPhone;
+    private static long UserPhone;
     private static String UserEmail;
 
 
@@ -41,7 +41,17 @@ public class InvoiceGenerator {
 
 
     // Constructor.
-    InvoiceGenerator(int id, String Name, int Phone, String Email, int Room, String Type, String Bed, int Price, String CheckinDetails, String CheckOutDetails) {
+    InvoiceGenerator(int id,
+            String Name, 
+            long Phone, 
+            String Email, 
+            int Room, 
+            String Type, 
+            String Bed, 
+            int Price, 
+            String CheckinDetails, 
+            String CheckOutDetails
+    ) {
         Userid = id;
         Username = Name;
         UserEmail = Email;

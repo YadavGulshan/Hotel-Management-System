@@ -34,6 +34,8 @@ public class Checkout extends javax.swing.JFrame {
     String UserCheckOut;
     String BillAmount;
     String UserAddress;
+    String UserBedType;
+    String UserRoomType;
 
     PreparedStatement ps;
     ResultSet rs;
@@ -339,6 +341,7 @@ public class Checkout extends javax.swing.JFrame {
     private void SearchRoomNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchRoomNumberActionPerformed
         String Roomnumber =  SroomNumber.getText();
         
+        
         Date date = new Date(); 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
         this.UserCheckOut = formatter.format(date);
@@ -357,7 +360,8 @@ public class Checkout extends javax.swing.JFrame {
                 this.UserCheckIn = rs.getString("CheckIn");
                 this.BillAmount = rs.getString("Bill Amount");
                 this.UserAddress = rs.getString("Address");
-
+                
+                
                 NameText.setText(UserName);
                 UroomNumber.setText(Roomnumber);
                 PhoneNumberText.setText(Long.toString(UserPhoneNumber));
@@ -393,9 +397,35 @@ public class Checkout extends javax.swing.JFrame {
 
     private void CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutActionPerformed
         try {
+            String QString = "SELECT * FROM `rooms` WHERE `roomNumber`=?";
+            ps = connectDatabase.getConnection().prepareStatement(QString);
+            ps.setInt(1, Integer.parseInt(SroomNumber.getText()));
+            
+            rs = ps.executeQuery();
+            rs.next();
+            this.UserBedType = rs.getString("bed");
+            this.UserRoomType = rs.getString("roomType");
+            
+            
             int a= JOptionPane.showConfirmDialog(this,"Are you sure?");
             if(a==0)
             {
+                int bill= JOptionPane.showConfirmDialog(this,"Do You Want A Bill");
+                if(bill==0){
+                    InvoiceGenerator IVG = new 
+                        InvoiceGenerator(this.userID,
+                                    this.UserName,
+                                    this.UserPhoneNumber,
+                                    this.UserEmail,
+                                    this.UserRoomNumber,
+                                    this.UserRoomType,
+                                    this.UserBedType,
+                                    Integer.parseInt(this.BillAmount),
+                                    this.UserCheckIn,
+                                    this.UserCheckOut
+                                    );
+                }
+                
 //                Removed From Current Users
                 ps = connectDatabase.getConnection().prepareStatement(queryRR);
                 ps.setInt(1, this.UserRoomNumber);
@@ -425,6 +455,7 @@ public class Checkout extends javax.swing.JFrame {
                 Checkoutdate.setText("");
                 NumberOfDays.setText("");
                 TotalAmount.setText("");
+                
             }
         } catch ( Exception ex) {
 
