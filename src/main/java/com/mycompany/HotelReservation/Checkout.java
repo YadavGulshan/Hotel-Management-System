@@ -425,7 +425,6 @@ public class Checkout extends javax.swing.JFrame {
                                     this.UserCheckOut
                                     );
                 }
-                
 //                Removed From Current Users
                 ps = connectDatabase.getConnection().prepareStatement(queryRR);
                 ps.setInt(1, this.UserRoomNumber);
