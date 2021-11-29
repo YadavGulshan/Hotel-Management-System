@@ -1,12 +1,13 @@
 package com.mycompany.HotelReservation;
 
+import com.itextpdf.text.Font;
 import com.itextpdf.text.*;
-import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import javax.print.Doc;
+import java.awt.*;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Date;
@@ -34,12 +35,8 @@ public class InvoiceGenerator2 {
     // Fonts
     private static final Font boldFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
             Font.BOLD);
-    private static final Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.NORMAL, BaseColor.RED);
     private static final Font normalFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL);
     private static final Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 14,
-            Font.BOLD);
-    private static final Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.BOLD);
 
 
@@ -56,7 +53,8 @@ public class InvoiceGenerator2 {
         UserCheckinDetails = CheckinDetails;
         UserCheckOutDetails = CheckOutDetails;
     }
-    private static final String FILE = "out/invoices/indez.pdf";
+    private  static final String PATH = "out/invoices/"+Userid+".pdf";
+    private static final File FILE = new File(PATH);
 
     public static void main(String[] args) throws Exception{
             Document document = new Document();
@@ -76,23 +74,34 @@ public class InvoiceGenerator2 {
 
             // Spacing for table
             addEmptyLine(document, 2);
-            addBorder(document, 125);
+            addBorder(document);
             addEmptyLine(document, 2);
 
 
             // Add table
             addTable(document);
             addEmptyLine(document, 1);
-            addBorder(document, 125);
+            addBorder(document);
 
             // Add footer
             addFooter(document);
 
             document.close();
             System.out.println("Invoice Generated!");
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
+
+
+            // Open file
+            if (!Desktop.isDesktopSupported()){
+                System.out.println("System not supported!");
+                return;
+            }
+            Desktop desktop = Desktop.getDesktop();
+            if(FILE.exists()){
+                desktop.open(FILE);
+            } else {
+                System.out.println("File Does not exists!");
+            }
+        } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -207,14 +216,10 @@ public class InvoiceGenerator2 {
         document.add(preface);
     }
 
-    private  static void addBorder(Document document, int num) throws DocumentException {
+    private  static void addBorder(Document document) throws DocumentException {
         Paragraph preface = new Paragraph();
-        StringBuilder dash = new StringBuilder();
-        for (int i= 0; i<num;i++){
-            dash.append("-");
-            // TODO : Add the borders.
-        }
-        preface.add(new Paragraph(String.valueOf(dash)));
+        // TODO : Add the borders.
+        preface.add(new Paragraph("-".repeat(125)));
         document.add(preface);
     }
 
