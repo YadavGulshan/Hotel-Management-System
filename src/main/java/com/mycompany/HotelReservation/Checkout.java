@@ -343,7 +343,7 @@ public class Checkout extends javax.swing.JFrame {
         
         
         Date date = new Date(); 
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         this.UserCheckOut = formatter.format(date);
         
         try {   

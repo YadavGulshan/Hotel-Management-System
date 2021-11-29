@@ -476,7 +476,7 @@ public class CheckIn extends javax.swing.JFrame {
 
             String email = Email.getText();
             String Address = this.Address.getText();
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-M-dd");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String checkInDate = formatter.format(CheckInDate.getDate());
 
 
