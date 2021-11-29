@@ -2,3 +2,5 @@
 target/classes/com/mycompany/mavenproject1/
 .idea/misc.xml
 *.pdf
+connectDatabase.java
+pom.xml

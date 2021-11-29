@@ -52,11 +52,11 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE125</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>group.id</groupId>-->
-<!--            <artifactId>artifactId.id</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>group.id</groupId>
+            <artifactId>artifactId.id</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

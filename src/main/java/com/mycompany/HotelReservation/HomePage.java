@@ -37,7 +37,7 @@ public final class HomePage extends javax.swing.JFrame {
             rs=ps.executeQuery();
             rs.next();
             this.user_name = rs.getString(2);
-            this.isAdmin = rs.getInt("isAdmin")==1;
+            this.isAdmin = rs.getInt("is_Admin")==1;
 
         } catch (SQLException ex) {
             Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);

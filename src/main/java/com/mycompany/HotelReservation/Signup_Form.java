@@ -33,7 +33,7 @@ public class Signup_Form extends javax.swing.JFrame {
         TextPhone = new javax.swing.JTextField();
         TextName = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SignUp");
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);

@@ -63,7 +63,7 @@ public class ManageRooms extends javax.swing.JFrame {
         PriceText = new javax.swing.JTextField();
         AddRoom = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Manage Rooms");
 
         jPanel1.setBackground(new java.awt.Color(173, 224, 252));

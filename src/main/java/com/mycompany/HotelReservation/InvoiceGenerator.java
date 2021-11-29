@@ -62,7 +62,7 @@ public class InvoiceGenerator {
         CalculatedPrice = Price;
         UserCheckinDetails = CheckinDetails;
         UserCheckOutDetails = CheckOutDetails;
-//        main();
+        main();
     }
     private  static final String PATH = "out/invoices/"+Userid+".pdf";
     private static final File FILE = new File(PATH);
@@ -112,9 +112,12 @@ public class InvoiceGenerator {
             } else {
                 System.out.println("File Does not exists!");
             }
+            return;
         } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
     }
 
     public static void addMetaData(Document document) {
@@ -166,6 +169,7 @@ public class InvoiceGenerator {
         }catch (DocumentException e){
             e.printStackTrace();
         }
+
     }
 
     public static  void addTable(Document document ) throws DocumentException{
