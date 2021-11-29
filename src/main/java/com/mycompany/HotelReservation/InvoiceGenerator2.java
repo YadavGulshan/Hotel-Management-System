@@ -27,7 +27,9 @@ public class InvoiceGenerator2 {
         CalculatedPrice = Price;
     }
     public static void addMetaData(Document document){
-
+        document.addAuthor("Gulshan Yadav");
+        document.addCreator("Hotelopedia");
+        document.addTitle("Invoice");
     }
 
 }
