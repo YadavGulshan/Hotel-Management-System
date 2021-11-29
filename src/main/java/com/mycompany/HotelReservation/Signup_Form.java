@@ -1,8 +1,5 @@
 package com.mycompany.HotelReservation;
 
-
-
-// this is for database use 
 import java.awt.*;
 import java.util.regex.*;
 import java.sql.PreparedStatement;
@@ -137,7 +134,7 @@ public class Signup_Form extends javax.swing.JFrame {
 //        ResultSet rs;
         String query = "INSERT INTO `Receptionist`( `Name`, `Phone`, `Email`, `password`, `Address`) VALUES (?,?,?,?,?)";
         
-        // email vaildition
+        // email validation
         String regex = "^(.+)@(.+)$";  
 
         Pattern pattern = Pattern.compile(regex);
@@ -154,7 +151,7 @@ public class Signup_Form extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    // checking wheather the given phone number is a number or not  
+    // checking whether the given phone number is a number or not
         else if(phone_number.trim().equals(""))
         {
         	
@@ -162,7 +159,7 @@ public class Signup_Form extends javax.swing.JFrame {
            
         }
 
-        // Checking wheather the given email is email or not 
+        // Checking whether the given email is email or not
 
         else if(email.trim().equals("")||!matcher.matches())
         {
@@ -207,7 +204,7 @@ public class Signup_Form extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
