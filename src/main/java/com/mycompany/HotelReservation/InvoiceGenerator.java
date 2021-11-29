@@ -64,11 +64,12 @@ public class InvoiceGenerator {
         UserCheckOutDetails = CheckOutDetails;
         main();
     }
-    private  static final String PATH = "out/invoices/"+Userid+".pdf";
-    private static final File FILE = new File(PATH);
+
 
     public static void main() throws Exception{
             Document document = new Document();
+        final String PATH = "out/invoices/"+Userid+".pdf";
+        final File FILE = new File(PATH);
         try
         {
             PdfWriter.getInstance(document, new FileOutputStream(FILE));
