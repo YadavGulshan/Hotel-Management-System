@@ -1,7 +1,6 @@
 
 package com.mycompany.HotelReservation;
 
-import java.awt.HeadlessException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
@@ -20,6 +19,11 @@ public class CheckIn extends javax.swing.JFrame {
     ResultSet rs;
     public CheckIn() {
         initComponents();
+    }
+    int E_Id;
+    public CheckIn(int id){
+        initComponents();
+        this.E_Id = id;
     }
 
     @SuppressWarnings("unchecked")
@@ -397,7 +401,7 @@ public class CheckIn extends javax.swing.JFrame {
 
     private void backToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToHomeActionPerformed
         this.dispose();
-        HomePage homePage = new HomePage();
+        HomePage homePage = new HomePage(E_Id);
         homePage.setVisible(true);
         homePage.setLocationRelativeTo(null);
     }//GEN-LAST:event_backToHomeActionPerformed

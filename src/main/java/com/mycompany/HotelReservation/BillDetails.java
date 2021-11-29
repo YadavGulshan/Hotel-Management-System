@@ -4,6 +4,15 @@
  */
 package com.mycompany.HotelReservation;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
@@ -11,12 +20,22 @@ package com.mycompany.HotelReservation;
 public class BillDetails extends javax.swing.JFrame {
 
     /**
-     * Creates new form BillDetails_
+     * Creates new form BillDetails
      */
     public BillDetails() {
         initComponents();
+        getUses();
     }
-
+    int E_ID;
+    
+    public BillDetails(int id) {
+        this();E_ID = id;
+        initComponents();
+        getUses();
+    }
+    PreparedStatement ps;
+    ResultSet rs;
+    String queryGetUser = "SELECT * FROM `Current User`";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +50,7 @@ public class BillDetails extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         backToHome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        SRoomNumber = new javax.swing.JTextField();
         Search = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -83,7 +102,7 @@ public class BillDetails extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(27, 40, 57));
         jLabel2.setText("Search by Room Number");
 
-        jTextField1.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        SRoomNumber.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
 
         Search.setBackground(new java.awt.Color(27, 40, 57));
         Search.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -95,17 +114,33 @@ public class BillDetails extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Room No.", "Name", "Contact No.", "Email", "Address", "Check In"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Byte.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -117,26 +152,26 @@ public class BillDetails extends javax.swing.JFrame {
                 .addGap(191, 191, 191)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SRoomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Search)
                 .addContainerGap(226, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+            .addComponent(jScrollPane1)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Search, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(SRoomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -154,13 +189,57 @@ public class BillDetails extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+    private void getUses(){
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        try{
+           ps =connectDatabase.getConnection().prepareStatement(queryGetUser);
+           rs = ps.executeQuery();
+           ResultSetMetaData RSD = rs.getMetaData();
+//           final int columnCount = RSD.getColumnCount();
+           int i = 0;
+           while(rs.next()){
+               model.addRow(new Object[]{"","","","","",""});
+                    for(int j=0;j<6;j++){
+                        model.setValueAt(rs.getObject(j+2), i, j);   
+                    }
+                    i+=1;
+           }
            
+        }catch(SQLException e){
+            Logger.getLogger(ManageRooms.class.getName()).log(Level.SEVERE, null, e);
+        } 
+        
+        
+        
+    }
+    
+    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+       int roomNumber = Integer.parseInt(SRoomNumber.getText());
+       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+       model.setRowCount(0);
+       String QueString = "SELECT * FROM `Current User` WHERE `Room Number`=?";
+        try {
+            ps =connectDatabase.getConnection().prepareStatement(QueString);
+            ps.setInt(1, roomNumber);
+            rs = ps.executeQuery();
+            int i = 0;
+            while (rs.next()) {                
+                model.addRow(new Object[]{"","","","","",""});
+                    for(int j=0;j<6;j++){
+                        model.setValueAt(rs.getObject(j+2), i, j);   
+                    }
+                    i+=1;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(BillDetails.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "User Not Found!!");
+        }
     }//GEN-LAST:event_SearchActionPerformed
 
     private void backToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToHomeActionPerformed
         this.dispose();
-        HomePage homePage = new HomePage();
+        HomePage homePage = new HomePage(E_ID);
         homePage.setVisible(true);
         homePage.setLocationRelativeTo(null);
     }//GEN-LAST:event_backToHomeActionPerformed
@@ -200,6 +279,7 @@ public class BillDetails extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField SRoomNumber;
     private javax.swing.JButton Search;
     private javax.swing.JButton backToHome;
     private javax.swing.JLabel jLabel1;
@@ -208,6 +288,5 @@ public class BillDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
