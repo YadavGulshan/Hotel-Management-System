@@ -13,7 +13,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.TableModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -28,10 +28,16 @@ public class ManageRooms extends javax.swing.JFrame {
         initComponents();
         getroomsdetails();
     }
+    int E_Id;
+    public ManageRooms(int id) {
+        this.E_Id = id;
+        initComponents();
+        getroomsdetails();
+    }
     PreparedStatement ps;
     ResultSet rs;
     String QueryGetRooms = "SELECT * FROM `rooms`";
-
+    String QueryAddRoom = "INSERT INTO `rooms`(`roomNumber`, `roomType`, `bed`, `price`) VALUES (?,?,?,?)";
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,14 +54,14 @@ public class ManageRooms extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        roomNumber = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        roomType = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        bedType = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        PriceText = new javax.swing.JTextField();
+        AddRoom = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manage Rooms");
@@ -104,28 +110,6 @@ public class ManageRooms extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"101", "Normal", "Single", "1000", "true"},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -147,29 +131,34 @@ public class ManageRooms extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel2.setText("Room Number");
 
-        jTextField3.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        roomNumber.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel3.setText("Room Type");
 
-        jComboBox1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "Non-AC" }));
+        roomType.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        roomType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal", "Economy", "VIP" }));
 
         jLabel4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel4.setText("Bed");
 
-        jComboBox2.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple" }));
+        bedType.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        bedType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Double", "Triple" }));
 
         jLabel5.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel5.setText("Price");
 
-        jTextField4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        PriceText.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
 
-        jButton2.setBackground(new java.awt.Color(27, 40, 57));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Add Rooms");
+        AddRoom.setBackground(new java.awt.Color(27, 40, 57));
+        AddRoom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        AddRoom.setForeground(new java.awt.Color(255, 255, 255));
+        AddRoom.setText("Add Rooms");
+        AddRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddRoomActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,26 +171,26 @@ public class ManageRooms extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bedType, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(roomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(95, 95, 95)
-                                .addComponent(jButton2)))))
+                                .addComponent(AddRoom)))))
                 .addGap(61, 61, 61))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -214,21 +203,21 @@ public class ManageRooms extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(roomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(8, 8, 8)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(roomType, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bedType, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -250,32 +239,56 @@ public class ManageRooms extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToHomeActionPerformed
-        HomePage homePage = new HomePage();
+        HomePage homePage = new HomePage(E_Id);
         homePage.setVisible(true);
         homePage.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_BackToHomeActionPerformed
-    private  void getroomsdetails(){
+
+    private void AddRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddRoomActionPerformed
+        int roomnumber = Integer.parseInt(roomNumber.getText());
+        String roomtype = (String) roomType.getSelectedItem();
+        String bedtype = (String) bedType.getSelectedItem();
+        int price = Integer.parseInt(PriceText.getText());
+        
+        try{
+            ps = connectDatabase.getConnection().prepareStatement(QueryAddRoom);
+            ps.setInt(1, roomnumber);
+            ps.setString(2, roomtype);
+            ps.setString(3, bedtype);
+            ps.setInt(4, price);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(rootPane, "Room added");
+            getroomsdetails();
+
+        }catch(SQLException e){
+            Logger.getLogger(ManageRooms.class.getName()).log(Level.SEVERE, null, e);
+            
+        }
+        
+    }//GEN-LAST:event_AddRoomActionPerformed
+    
+    private void getroomsdetails(){
         try {
             jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
             ps = connectDatabase.getConnection().prepareStatement(QueryGetRooms);
             rs = ps.executeQuery();
             ResultSetMetaData RSD = rs.getMetaData();
             final int columnCount = RSD.getColumnCount();
-            TableModel model = jTable1.getModel();
-
-            if(rs.next()){
-                int i=1;
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                int i=0;
                 while(rs.next()){
+                    model.addRow(new Object[]{"","","","",""});
                     for(int j=0;j<columnCount;j++){
-                        model.setValueAt(rs.getObject(j+1), i, j);   ////  ISSUE HERE
+                        model.setValueAt(rs.getObject(j+1), i, j);   
                     }
+                    
                     i+=1;
                 }
-            }
-
         } catch (SQLException ex) {
             Logger.getLogger(ManageRooms.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(ArrayIndexOutOfBoundsException E){
+            JOptionPane.showMessageDialog(rootPane, "Can't add Room!!");
         }
     }
     /**
@@ -315,10 +328,10 @@ public class ManageRooms extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddRoom;
     private javax.swing.JButton BackToHome;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JTextField PriceText;
+    private javax.swing.JComboBox<String> bedType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -328,7 +341,7 @@ public class ManageRooms extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField roomNumber;
+    private javax.swing.JComboBox<String> roomType;
     // End of variables declaration//GEN-END:variables
 }

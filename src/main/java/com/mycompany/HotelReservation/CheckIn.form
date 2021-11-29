@@ -340,7 +340,7 @@
                       <Component id="RoomNumber" pref="33" max="32767" attributes="0"/>
                       <Component id="jLabel10" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="checkAmountButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="checkInButton" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>

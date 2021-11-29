@@ -2,6 +2,11 @@
 package com.mycompany.HotelReservation;
 
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public final class HomePage extends javax.swing.JFrame {
@@ -16,19 +21,31 @@ public final class HomePage extends javax.swing.JFrame {
         initComponents();        
         setUserName(user_name);
     }
-
+        PreparedStatement ps;
+        ResultSet rs;
+        String Query = "SELECT * FROM `Receptionist` WHERE `E_id`=?";
+        
 //    public HomePage(String name, String email, String pass, boolean isAdmin, int E_id) {
 
-    public HomePage(String name, boolean isAdmin, int E_id) {
+    public HomePage(int E_id) {
         
         this.E_Id = E_id;
-//        this.email = email;
-//        this.pass = pass;
-        this.user_name = name;
-        this.isAdmin = isAdmin;
-        setUserName(user_name);
+        try {
+
+            ps = connectDatabase.getConnection().prepareStatement(Query);
+            ps.setInt(1, E_id);
+            rs=ps.executeQuery();
+            rs.next();
+            this.user_name = rs.getString(2);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(HomePage.class.getName()).log(Level.SEVERE, null, ex);
+        }setUserName(user_name);
         initComponents();
+        
     }
+
+
 
     public void setUserName(String user_name){
         this.user_name=user_name; 
@@ -99,7 +116,7 @@ public final class HomePage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(34, 34, 34)
                 .addComponent(greeting_user, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -398,21 +415,21 @@ public final class HomePage extends javax.swing.JFrame {
 
     private void checkOutPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkOutPanelMouseClicked
              
-        Checkout checkout = new Checkout();
+        Checkout checkout = new Checkout(E_Id);
         checkout.setVisible(true);
         checkout.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_checkOutPanelMouseClicked
 
     private void checkInPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkInPanelMouseClicked
-        CheckIn checkin = new CheckIn();
+        CheckIn checkin = new CheckIn(E_Id);
         checkin.setVisible(true);
         checkin.setLocationRelativeTo(null);
         this.dispose();
     }//GEN-LAST:event_checkInPanelMouseClicked
 
     private void manageRoomPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageRoomPanelMouseClicked
-        ManageRooms manageRooms = new ManageRooms();
+        ManageRooms manageRooms = new ManageRooms(E_Id);
         manageRooms.setVisible(true);
         manageRooms.setLocationRelativeTo(null);
         this.dispose();
@@ -443,7 +460,7 @@ public final class HomePage extends javax.swing.JFrame {
     private void ViewCustomersPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewCustomersPanelMouseClicked
 
         this.dispose();
-        BillDetails billDetails = new BillDetails();
+        BillDetails billDetails = new BillDetails(E_Id);
         billDetails.setVisible(true);
         billDetails.setLocationRelativeTo(null);
 

@@ -19,6 +19,12 @@ public class Checkout extends javax.swing.JFrame {
     public Checkout() {
         initComponents();
     }
+    int E_id;
+    public Checkout(int id){
+        this.E_id = id;
+        initComponents();
+        
+    }
     private int UserRoomNumber;
     int userID;
     String UserName;
@@ -379,7 +385,7 @@ public class Checkout extends javax.swing.JFrame {
 
     private void backToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToHomeActionPerformed
         // TODO add your handling code here:
-        HomePage homePage = new HomePage();
+        HomePage homePage = new HomePage(E_id);
         homePage.setVisible(true);
         homePage.setLocationRelativeTo(null);
         this.dispose();
