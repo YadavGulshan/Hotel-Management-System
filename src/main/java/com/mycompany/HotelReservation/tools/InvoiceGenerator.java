@@ -1,4 +1,4 @@
-package com.mycompany.HotelReservation;
+package com.mycompany.HotelReservation.tools;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.*;

@@ -1,5 +1,7 @@
 package com.mycompany.HotelReservation;
 
+import com.mycompany.HotelReservation.tools.InvoiceGenerator;
+
 import javax.swing.*;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -412,7 +414,7 @@ public class Checkout extends javax.swing.JFrame {
             {
                 int bill= JOptionPane.showConfirmDialog(this,"Do You Want A Bill");
                 if(bill==0){
-                    InvoiceGenerator IVG = new 
+                    InvoiceGenerator IVG = new
                         InvoiceGenerator(this.userID,
                                     this.UserName,
                                     this.UserPhoneNumber,

@@ -1,4 +1,4 @@
-package com.mycompany.HotelReservation;
+package com.mycompany.HotelReservation.tools;
 import com.mycompany.HotelReservation.env.env;
 import com.mycompany.HotelReservation.template.EmailBody;
 
