@@ -18,7 +18,7 @@ public class SmtpHandler {
     // set app name to `hotelopedia` then hit enter
     // paste the generated password here.
     private static final String PASSWORD = "zecansstrnbblopo";
-    private static String recipient;
+    private static String recipientEmail;
     private static String mailSubject;
     private static String recipientName;
     private static long recipientPhone;
@@ -114,6 +114,9 @@ public class SmtpHandler {
 
         // Send email to whom? and what to send?
         System.out.println("Send email to "+ recipient);
+
+        // Object of Email Body class
+        EmailBody eb = new EmailBody();
         SmtpHandler.sendEmail(recipient,
                 mailSubject,
                 recipientIsCheckin? EmailBody.CheckInHTML:EmailBody.CheckOutHTML);
