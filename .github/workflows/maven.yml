@@ -25,5 +25,6 @@ jobs:
 #    - name: Build with Maven
 #      run: mvn -B package --file pom.xml
       steps:
+        - uses: actions/checkout@v2
         name: Printing hello for now!
         run: echo "Hello Gulshan"
