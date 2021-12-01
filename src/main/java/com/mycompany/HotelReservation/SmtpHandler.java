@@ -1,4 +1,6 @@
 package com.mycompany.HotelReservation;
+import com.mycompany.HotelReservation.template.EmailBody;
+
 import  javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -114,6 +116,6 @@ public class SmtpHandler {
         System.out.println("Send email to "+ recipient);
         SmtpHandler.sendEmail(recipient,
                 mailSubject,
-                "<h2>Testing Emailing!</h2><p>hi there!</p>");
+                recipientIsCheckin? EmailBody.CheckInHTML:EmailBody.CheckOutHTML);
     }
 }
