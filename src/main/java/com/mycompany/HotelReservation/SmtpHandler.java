@@ -18,23 +18,28 @@ public class SmtpHandler {
     // set app name to `hotelopedia` then hit enter
     // paste the generated password here.
     private static final String PASSWORD = "zecansstrnbblopo";
+
+    // Vars
     private static String recipientEmail;
     private static String mailSubject;
     private static String recipientName;
     private static long recipientPhone;
+    private static String recipientAddress;
     private static int recipientRoom;
     private static String recipientRoomType;
     private static String recipientBedType;
     private static int recipientBillAmount;
     private static String recipientCheckinDate;
-    private static boolean recipientIsCheckin;
+    private static boolean recipientIsCheckin; // For knowing which template to use
     private static String recipientCheckoutDate;
+
 
     // SMTP constructor here.
     SmtpHandler(String email,
                 String subject,
                 String Name,
                 long Phone,
+                String Address,
                 int Room,
                 String Type,
                 String Bed,
@@ -44,10 +49,11 @@ public class SmtpHandler {
                 // if checkIn is false then just pass an empty string here.
                 String checkoutDate
                 ){
-        recipient = email;
+        recipientEmail = email;
         mailSubject = subject;
         recipientName = Name;
         recipientPhone = Phone;
+        recipientAddress = Address;
         recipientRoom = Room;
         recipientRoomType = Type;
         recipientBedType = Bed;
@@ -113,11 +119,22 @@ public class SmtpHandler {
         System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
 
         // Send email to whom? and what to send?
-        System.out.println("Send email to "+ recipient);
+        System.out.println("Send email to "+ recipientEmail);
 
         // Object of Email Body class
-        EmailBody eb = new EmailBody();
-        SmtpHandler.sendEmail(recipient,
+        EmailBody eb = new EmailBody(
+            recipientName,
+            0,
+            recipientAddress,
+            recipientPhone,
+            recipientRoom,
+            recipientRoomType,
+            recipientBedType,
+            recipientCheckinDate,
+            recipientBillAmount,
+            recipientCheckoutDate // If checking in, then pass null.
+        );
+        SmtpHandler.sendEmail(recipientEmail,
                 mailSubject,
                 recipientIsCheckin? EmailBody.CheckInHTML:EmailBody.CheckOutHTML);
     }

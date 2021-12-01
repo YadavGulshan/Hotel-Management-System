@@ -10,8 +10,18 @@ public class EmailBody {
     private static String CheckinDate;
     private static int amount;
     private static String  CheckOutDate;
+    private static String BedType;
 
-    EmailBody(String UserName, int UserId, String UserAddress, long UserPhone, int UserRoonNum, String UserRoomType, String UserCheckinDate, int UserAmount, String UserCheckoutDate){
+    public EmailBody(String UserName,
+                     int UserId,
+                     String UserAddress,
+                     long UserPhone,
+                     int UserRoonNum,
+                     String UserRoomType,
+                     String bedType,
+                     String UserCheckinDate,
+                     int UserAmount,
+                     String UserCheckoutDate){
         name = UserName;
         uid = UserId;
         address = UserAddress;
@@ -21,6 +31,7 @@ public class EmailBody {
         CheckinDate = UserCheckinDate;
         amount = UserAmount;
         CheckOutDate = UserCheckoutDate;
+        BedType = bedType;
     }
     public static final String CheckInHTML = String.format("""
             <body style="margin: 0%; padding: 0%; color: black; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
