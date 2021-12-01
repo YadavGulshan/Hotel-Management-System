@@ -16,7 +16,44 @@ public class SmtpHandler {
     // set app name to `hotelopedia` then hit enter
     // paste the generated password here.
     private static final String PASSWORD = "zecansstrnbblopo";
+    private static String recipient;
+    private static String mailSubject;
+    private static String recipientName;
+    private static long recipientPhone;
+    private static int recipientRoom;
+    private static String recipientRoomType;
+    private static String recipientBedType;
+    private static int recipientBillAmount;
+    private static String recipientCheckinDate;
+    private static boolean recipientIsCheckin;
+    private static String recipientCheckoutDate;
 
+    // SMTP constructor here.
+    SmtpHandler(String email,
+                String subject,
+                String Name,
+                long Phone,
+                int Room,
+                String Type,
+                String Bed,
+                int Price,
+                String checkinDate,
+                boolean isCheckin,
+                // if checkIn is false then just pass an empty string here.
+                String checkoutDate
+                ){
+        recipient = email;
+        mailSubject = subject;
+        recipientName = Name;
+        recipientPhone = Phone;
+        recipientRoom = Room;
+        recipientRoomType = Type;
+        recipientBedType = Bed;
+        recipientBillAmount = Price;
+        recipientCheckinDate = checkinDate;
+        recipientIsCheckin = isCheckin;
+        recipientCheckoutDate = checkoutDate;
+    }
     public static void sendEmail(String to, String subject, String body) throws MessagingException {
         System.out.println("Creating session!");
         Session session = createSession();
@@ -74,8 +111,9 @@ public class SmtpHandler {
         System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
 
         // Send email to whom? and what to send?
-        SmtpHandler.sendEmail("yadavgulshan542@gmail.com",
-                "Test email",
+        System.out.println("Send email to "+ recipient);
+        SmtpHandler.sendEmail(recipient,
+                mailSubject,
                 "<h2>Testing Emailing!</h2><p>hi there!</p>");
     }
 }
