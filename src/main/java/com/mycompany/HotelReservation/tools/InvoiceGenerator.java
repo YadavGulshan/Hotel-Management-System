@@ -41,16 +41,16 @@ public class InvoiceGenerator {
 
 
     // Constructor.
-    InvoiceGenerator(int id,
-            String Name, 
-            long Phone,
-            String Email, 
-            int Room, 
-            String Type, 
-            String Bed, 
-            int Price, 
-            String CheckinDetails, 
-            String CheckOutDetails
+    public InvoiceGenerator(int id,
+                            String Name,
+                            long Phone,
+                            String Email,
+                            int Room,
+                            String Type,
+                            String Bed,
+                            int Price,
+                            String CheckinDetails,
+                            String CheckOutDetails
     ) throws Exception {
         Userid = id;
         Username = Name;

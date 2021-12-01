@@ -21,48 +21,48 @@ public class SmtpHandler  extends env {
     private static final String PASSWORD = env.Password;
 
     // Vars
-    private static String recipientEmail;
-    private static String mailSubject;
-    private static String recipientName;
-    private static long recipientPhone;
-    private static String recipientAddress;
-    private static int recipientRoom;
-    private static String recipientRoomType;
-    private static String recipientBedType;
-    private static int recipientBillAmount;
-    private static String recipientCheckinDate;
-    private static boolean recipientIsCheckin; // For knowing which template to use
-    private static String recipientCheckoutDate;
+    private static String recipientEmail = "Yadavgulshan542@gmail.com";
+    private static String mailSubject ="Testing the smtp file 1";
+    private static String recipientName ="Gulshan Yadav";
+    private static String recipientPhone = "7977421559";
+    private static String recipientAddress ="Thane, Maharashtra";
+    private static int recipientRoom = 200;
+    private static String recipientRoomType = "Deluxe";
+    private static String recipientBedType ="King";
+    private static int recipientBillAmount =100000;
+    private static String recipientCheckinDate ="24 AUg 2021";
+    private static boolean recipientIsCheckin = false; // For knowing which template to use
+    private static String recipientCheckoutDate = "null";
 
 
     // SMTP constructor here.
-    SmtpHandler(String email,
-                String subject,
-                String Name,
-                long Phone,
-                String Address,
-                int Room,
-                String Type,
-                String Bed,
-                int Price,
-                String checkinDate,
-                boolean isCheckin,
-                // if checkIn is false then just pass an empty string here.
-                String checkoutDate
-                ){
-        recipientEmail = email;
-        mailSubject = subject;
-        recipientName = Name;
-        recipientPhone = Phone;
-        recipientAddress = Address;
-        recipientRoom = Room;
-        recipientRoomType = Type;
-        recipientBedType = Bed;
-        recipientBillAmount = Price;
-        recipientCheckinDate = checkinDate;
-        recipientIsCheckin = isCheckin;
-        recipientCheckoutDate = checkoutDate;
-    }
+//    SmtpHandler(String email,
+//                String subject,
+//                String Name,
+//                long Phone,
+//                String Address,
+//                int Room,
+//                String Type,
+//                String Bed,
+//                int Price,
+//                String checkinDate,
+//                boolean isCheckin,
+//                // if checkIn is false then just pass an empty string here.
+//                String checkoutDate
+//                ){
+//        recipientEmail = email;
+//        mailSubject = subject;
+//        recipientName = Name;
+//        recipientPhone = Phone;
+//        recipientAddress = Address;
+//        recipientRoom = Room;
+//        recipientRoomType = Type;
+//        recipientBedType = Bed;
+//        recipientBillAmount = Price;
+//        recipientCheckinDate = checkinDate;
+//        recipientIsCheckin = isCheckin;
+//        recipientCheckoutDate = checkoutDate;
+//    }
     public static void sendEmail(String to, String subject, String body) throws MessagingException {
         System.out.println("Creating session!");
         Session session = createSession();
@@ -116,7 +116,7 @@ public class SmtpHandler  extends env {
         int randomNum = (int) (Math.random()*(jobs.length-0+1)+0);
 
         // Some fun stuff!
-        System.out.println("Ugh, I was " + jobs[randomNum]);
+//        System.out.println("Ugh, I was " + jobs[randomNum ]);
         System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
 
         // Send email to whom? and what to send?
@@ -133,10 +133,11 @@ public class SmtpHandler  extends env {
             recipientBedType,
             recipientCheckinDate,
             recipientBillAmount,
-            recipientCheckoutDate // If checking in, then pass null.
+            recipientCheckoutDate,// If checking in, then pass null.
+                recipientIsCheckin
         );
         SmtpHandler.sendEmail(recipientEmail,
-                mailSubject,
-                recipientIsCheckin? EmailBody.CheckInHTML:EmailBody.CheckOutHTML);
+                mailSubject, eb.Html
+                );
     }
 }
