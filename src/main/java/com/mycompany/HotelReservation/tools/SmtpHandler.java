@@ -49,7 +49,7 @@ public class SmtpHandler extends env {
                 boolean isCheckin,
                 // if checkIn is false then just pass an empty string here.
                 String checkoutDate
-    ) {
+    ) throws MessagingException {
         recipientEmail = email;
         mailSubject = subject;
         recipientName = Name;
@@ -62,6 +62,7 @@ public class SmtpHandler extends env {
         recipientCheckinDate = checkinDate;
         recipientIsCheckin = isCheckin;
         recipientCheckoutDate = checkoutDate;
+        main();
     }
 
     public static void sendEmail(String to, String subject, String body) throws MessagingException {
@@ -109,7 +110,7 @@ public class SmtpHandler extends env {
     }
 
     // That's it, easy peasy!
-    public static void main(String[] args) throws MessagingException {
+    public static void main() throws MessagingException {
 
         // Generating random ints
         int randomNum = (int) (Math.random() * (jobs.length - 0 + 1) + 0);
