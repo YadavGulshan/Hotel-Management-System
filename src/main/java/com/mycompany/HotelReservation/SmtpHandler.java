@@ -60,9 +60,20 @@ public class SmtpHandler {
             }
         });
     }
+    // Fun!
+    public static final String jobs[] = {"baking some cakes!", "cleaning my room!", "completing my assignments!","eating my favourite dish!"};
 
     // That's it, easy peasy!
     public static void main(String[] args) throws MessagingException {
+
+        // Generating random ints
+        int randomNum = (int) (Math.random()*(jobs.length-0+1)+0);
+
+        // Some fun stuff!
+        System.out.println("Ugh, I was " + jobs[randomNum]);
+        System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
+
+        // Send email to whom? and what to send?
         SmtpHandler.sendEmail("yadavgulshan542@gmail.com",
                 "Test email",
                 "<h2>Testing Emailing!</h2><p>hi there!</p>");
