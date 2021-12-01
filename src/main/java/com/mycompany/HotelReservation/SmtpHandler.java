@@ -1,4 +1,5 @@
 package com.mycompany.HotelReservation;
+import com.mycompany.HotelReservation.env.env;
 import com.mycompany.HotelReservation.template.EmailBody;
 
 import  javax.mail.*;
@@ -6,8 +7,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class SmtpHandler {
-    private static final String EMAIL = "gulshanprojects@gmail.com";
+public class SmtpHandler  extends env {
+    private static final String EMAIL = env.Email;
 
     // APP PASSWORD
 
@@ -17,7 +18,7 @@ public class SmtpHandler {
     // Enable the app password, select other as the application
     // set app name to `hotelopedia` then hit enter
     // paste the generated password here.
-    private static final String PASSWORD = "zecansstrnbblopo";
+    private static final String PASSWORD = env.Password;
 
     // Vars
     private static String recipientEmail;
