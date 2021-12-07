@@ -12,6 +12,24 @@ git clone git@github.com:YadavGulshan/Hotel-Management-System.git
 4. Import the sql file into your mysql database.
 5. Run the project.
 ___
+#### Steps to setup the email service:
+1. Create a google account.
+2. Ensure that you have enabled the two factor authentication.
+3. If not then, Head to the my account [page](https://myaccount.google.com/security) and click on the "Enable two-factor authentication" button.
+4. Click on `App Password`
+![App Password](https://telegra.ph/file/c11be1863089a14607808.png)
+5. Select `Other` in Select App dropdown.
+![Select App](https://telegra.ph/file/0767296ced9752c253fd0.png)
+6. Name your Application.
+7. And now paste your email address and your generated password for the app in [env.java file](https://github.com/YadavGulshan/Hotel-Management-System/blob/main/src/main/java/com/mycompany/HotelReservation/env/env.java).
+
+
+**Your smtp server is ready to rock!!**
+>**Note: **
+>>For security reasons, this service will only be limited to your first used app's IP address.
+
+
+___
 **Project UI**
 
 ***DashBoard***
