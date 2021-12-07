@@ -1,6 +1,7 @@
 package com.mycompany.HotelReservation;
 
 import com.mycompany.HotelReservation.tools.InvoiceGenerator;
+import com.mycompany.HotelReservation.tools.SmtpHandler;
 
 import javax.swing.*;
 import java.time.LocalDate;
@@ -21,32 +22,52 @@ public class Checkout extends javax.swing.JFrame {
     public Checkout() {
         initComponents();
     }
+
     int E_id;
+
     public Checkout(int id){
         this.E_id = id;
         initComponents();
         
     }
+
+//  All Required Variables
+
     private int UserRoomNumber;
     int userID;
-    String UserName;
     long UserPhoneNumber;
+    String UserName;
     String UserEmail;
-    String UserCheckIn;
-    String UserCheckOut;
     String BillAmount;
-    String UserAddress;
     String UserBedType;
+    String UserCheckIn;
+    String UserAddress;
+    String UserCheckOut;
     String UserRoomType;
 
     PreparedStatement ps;
     ResultSet rs;
-    
-    String queryRR = "UPDATE `rooms` SET `status`=0 WHERE `roomNumber`=?";//Remove Room
-    String queryGC = "SELECT * FROM `Current User` WHERE `Room Number`=?";// Get Customer
-    String queryRC = "DELETE FROM `Current User` WHERE `Room Number`=?";// Remove Customer
-    String queryHistory = "INSERT INTO `History`(`Id`, `Name`, `Phone`, `Email`, `Address`, `RoomNumber`, `Check In Date`, `Check out date`, `Bill amount`) VALUES (?,?,?,?,?,?,?,?,?)"; // Add to History
-    
+
+//    All Queries
+//----------------------------------------------------------------------------------------------------------------------//
+//    Remove Room
+
+    String queryRR = "UPDATE `rooms` SET `status`=0 WHERE `roomNumber`=?";
+
+//    Get Customer
+
+    String queryGC = "SELECT * FROM `Current User` WHERE `Room Number`=?";
+
+//    Remove Customer
+
+    String queryRC = "DELETE FROM `Current User` WHERE `Room Number`=?";
+
+//    Add to History
+
+    String queryHistory = "INSERT INTO `History`(`Id`, `Name`, `Phone`, `Email`, `Address`, `RoomNumber`, `Check In Date`, `Check out date`, `Bill amount`) VALUES (?,?,?,?,?,?,?,?,?)";
+
+//----------------------------------------------------------------------------------------------------------------------//
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -341,19 +362,29 @@ public class Checkout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     private void SearchRoomNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchRoomNumberActionPerformed
-        String Roomnumber =  SroomNumber.getText();
-        
-        
+
+//        Getting the Room Number from Text field
+
+        String RoomNumber =  SroomNumber.getText();
+
+//      Create a formatter that will Format the Check-Out Date in YYYY-MM-dd
         Date date = new Date(); 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         this.UserCheckOut = formatter.format(date);
         
-        try {   
+        try {
+
+//            Checking whether User exits At Given Room Number
+
             ps= connectDatabase.getConnection().prepareStatement(queryGC);
-            ps.setString(1, Roomnumber);
+            ps.setString(1, RoomNumber);
             rs = ps.executeQuery();
 
+
             if(rs.next()){
+
+//                Setting all the Variable For Filling the Fields Below the search Room Text field
+
                 this.userID = rs.getInt("Id");
                 this.UserName = rs.getString("Name");
                 this.UserPhoneNumber = Long.parseLong(rs.getString("Phone"));
@@ -363,16 +394,21 @@ public class Checkout extends javax.swing.JFrame {
                 this.BillAmount = rs.getString("Bill Amount");
                 this.UserAddress = rs.getString("Address");
                 
-                
+//                Filling all the text Fields
+
                 NameText.setText(UserName);
-                UroomNumber.setText(Roomnumber);
+                UroomNumber.setText(RoomNumber);
                 PhoneNumberText.setText(Long.toString(UserPhoneNumber));
                 EmailText.setText(UserEmail);
                 CheckIn.setText(UserCheckIn);
                 Checkoutdate.setText(UserCheckOut);
+
+//                Getting the deference between Check In and Check Out
+
                 LocalDate dateBefore = LocalDate.parse(UserCheckIn);
                 LocalDate dateAfter = LocalDate.parse(UserCheckOut);
                 int noOfDaysBetween = (int) ChronoUnit.DAYS.between(dateBefore, dateAfter);
+
                 NumberOfDays.setText(Integer.toString(noOfDaysBetween));
                 BillAmount = Integer.toString(Integer.parseInt(BillAmount) * noOfDaysBetween);
                 TotalAmount.setText(BillAmount);
@@ -391,51 +427,84 @@ public class Checkout extends javax.swing.JFrame {
 
     private void backToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToHomeActionPerformed
         // TODO add your handling code here:
+
         HomePage homePage = new HomePage(E_id);
         homePage.setVisible(true);
         homePage.setLocationRelativeTo(null);
         this.dispose();
+
     }//GEN-LAST:event_backToHomeActionPerformed
 
     private void CheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutActionPerformed
+
         try {
+//
+//            Getting Data form For Room and Bed Type
+//            --------------------------------------------------
             String QString = "SELECT * FROM `rooms` WHERE `roomNumber`=?";
             ps = connectDatabase.getConnection().prepareStatement(QString);
             ps.setInt(1, Integer.parseInt(SroomNumber.getText()));
-            
             rs = ps.executeQuery();
             rs.next();
-            this.UserBedType = rs.getString("bed");
+
+            this.UserBedType  = rs.getString("bed");
             this.UserRoomType = rs.getString("roomType");
-            
-            
+//            ---------------------------------------------------
+
+//            Giving Option to print the bill or not
+
             int a= JOptionPane.showConfirmDialog(this,"Are you sure?");
             if(a==0)
             {
-                int bill= JOptionPane.showConfirmDialog(this,"Do You Want A Bill");
-                if(bill==0){
-                    InvoiceGenerator IVG = new
-                        InvoiceGenerator(this.userID,
-                                    this.UserName,
-                                    this.UserPhoneNumber,
-                                    this.UserEmail,
-                                    this.UserRoomNumber,
-                                    this.UserRoomType,
-                                    this.UserBedType,
-                                    Integer.parseInt(this.BillAmount),
-                                    this.UserCheckIn,
-                                    this.UserCheckOut
-                                    );
-                }
-//                Removed From Current Users
+//                int bill= JOptionPane.showConfirmDialog(this,"Do You Want A Bill");
+//                if(bill==0){
+//
+////                    Generating bill in pdf format
+//
+//                    InvoiceGenerator IVG = new
+//                        InvoiceGenerator(this.userID,
+//                                    this.UserName,
+//                                    this.UserPhoneNumber,
+//                                    this.UserEmail,
+//                                    this.UserRoomNumber,
+//                                    this.UserRoomType,
+//                                    this.UserBedType,
+//                                    Integer.parseInt(this.BillAmount),
+//                                    this.UserCheckIn,
+//                                    this.UserCheckOut);
+//                }
+
+                SmtpHandler smpt = new SmtpHandler(
+                        this.userID,
+                        this.UserEmail,
+                        "Thank You For Visiting!!",
+                        this.UserName,
+                        this.UserPhoneNumber,
+                        this.UserAddress,
+                        this.UserRoomNumber,
+                        this.UserRoomType,
+                        this.UserBedType,
+                        Integer.parseInt(this.BillAmount),
+                        this.UserCheckIn,
+                        false,
+                        this.UserCheckOut
+                );
+
+
+//                Removed From Current Users DB
+
                 ps = connectDatabase.getConnection().prepareStatement(queryRR);
                 ps.setInt(1, this.UserRoomNumber);
                 ps.executeUpdate();
+
 //                Set Room Status to available
+
                 ps = connectDatabase.getConnection().prepareStatement(queryRC);
                 ps.setInt(1, UserRoomNumber);
                 ps.executeUpdate();
+
 //              Added To History
+
                 ps = connectDatabase.getConnection().prepareStatement(queryHistory);
                 ps.setInt(1, userID);
                 ps.setString(2, UserName);
@@ -447,6 +516,9 @@ public class Checkout extends javax.swing.JFrame {
                 ps.setString(8, UserCheckOut);
                 ps.setString(9, BillAmount);
                 ps.executeUpdate();
+
+//                Resetting all the fields to empty
+
                 SroomNumber.setText("");
                 NameText.setText("");
                 UroomNumber.setText("");
@@ -461,7 +533,7 @@ public class Checkout extends javax.swing.JFrame {
         } catch ( Exception ex) {
 
             Logger.getLogger(Checkout.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(this, "Oops!! SomeThing Went Wrong", "Failed", 2);
+            JOptionPane.showMessageDialog(this, "Oops!! SomeThing Went Wrong", "Failed", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_CheckOutActionPerformed
 

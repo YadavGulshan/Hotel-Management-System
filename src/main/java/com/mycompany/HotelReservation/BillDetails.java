@@ -6,7 +6,6 @@ package com.mycompany.HotelReservation;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,18 +23,24 @@ public class BillDetails extends javax.swing.JFrame {
      */
     public BillDetails() {
         initComponents();
+        this.model = (DefaultTableModel) jTable1.getModel();
         getUses();
     }
+
+    DefaultTableModel model;
     int E_ID;
-    
+//    int rowCount;
+
     public BillDetails(int id) {
-        this();E_ID = id;
+        E_ID = id;
         initComponents();
+        this.model = (DefaultTableModel) jTable1.getModel();
         getUses();
     }
     PreparedStatement ps;
     ResultSet rs;
     String queryGetUser = "SELECT * FROM `Current User`";
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,8 +60,9 @@ public class BillDetails extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Veiw Customer");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(173, 224, 252));
 
@@ -70,6 +76,7 @@ public class BillDetails extends javax.swing.JFrame {
         backToHome.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         backToHome.setForeground(new java.awt.Color(27, 40, 57));
         backToHome.setText("Back");
+        backToHome.setBorder(null);
         backToHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backToHomeActionPerformed(evt);
@@ -82,9 +89,9 @@ public class BillDetails extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         jPanel2Layout.setVerticalGroup(
@@ -93,7 +100,7 @@ public class BillDetails extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
-                    .addComponent(backToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(backToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -189,50 +196,57 @@ public class BillDetails extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void getUses(){
-        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        try{
-           ps =connectDatabase.getConnection().prepareStatement(queryGetUser);
-           rs = ps.executeQuery();
-//           final int columnCount = RSD.getColumnCount();
-           int i = 0;
-           while(rs.next()){
-               model.addRow(new Object[]{"","","","","",""});
-                    for(int j=0;j<6;j++){
-                        model.setValueAt(rs.getObject(j+2), i, j);   
-                    }
-                    i+=1;
-           }
-           
-        }catch(SQLException e){
-            Logger.getLogger(ManageRooms.class.getName()).log(Level.SEVERE, null, e);
-        } 
-        
-        
-        
-    }
-    
-    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
-       int roomNumber = Integer.parseInt(SRoomNumber.getText());
-       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-       model.setRowCount(0);
-       String QueString = "SELECT * FROM `Current User` WHERE `Room Number`=?";
+    private void getUses() {
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         try {
-            ps =connectDatabase.getConnection().prepareStatement(QueString);
-            ps.setInt(1, roomNumber);
+            ps = connectDatabase.getConnection().prepareStatement(queryGetUser);
             rs = ps.executeQuery();
+
+//           this.rowCount = rs.getRow();
             int i = 0;
-            while (rs.next()) {                
-                model.addRow(new Object[]{"","","","","",""});
-                    for(int j=0;j<6;j++){
-                        model.setValueAt(rs.getObject(j+2), i, j);   
-                    }
-                    i+=1;
+            while (rs.next()) {
+                model.addRow(new Object[]{"", "", "", "", "", ""});
+                for (int j = 0; j < 6; j++) {
+                    model.setValueAt(rs.getObject(j + 2), i, j);
+                }
+                i += 1;
             }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(BillDetails.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(rootPane, "User Not Found!!");
+
+        } catch (SQLException e) {
+            Logger.getLogger(ManageRooms.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+        String roomNumber = SRoomNumber.getText();
+//        System.out.println(roomNumber);
+        if (!roomNumber.trim().equals("")) {
+            //       model.setRowCount(0);
+            model.getDataVector().removeAllElements();
+
+            String QueString = "SELECT * FROM `Current User` WHERE `Room Number`=?";
+            try {
+                ps = connectDatabase.getConnection().prepareStatement(QueString);
+                ps.setString(1, roomNumber);
+                rs = ps.executeQuery();
+//                  int i = 0;                  
+                if (rs.next()) {
+                    for (int i = 0; i < rs.getRow(); i++) {
+                        model.addRow(new Object[]{"", "", "", "", "", ""});
+                        for (int j = 0; j < 6; j++) {
+                            model.setValueAt(rs.getObject(j + 2), i, j);
+                        }
+                        rs.next();
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "User Not Found!!. Enter Correct Room Number");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(BillDetails.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(rootPane, "Opps Something went Wrong!!");
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Room Number is Required!");
         }
     }//GEN-LAST:event_SearchActionPerformed
 

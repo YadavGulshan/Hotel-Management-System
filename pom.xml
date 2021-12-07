@@ -52,12 +52,12 @@
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE125</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>group.id</groupId>-->
-<!--            <artifactId>artifactId.id</artifactId>-->
-<!--            <version>1.0</version>-->
-<!--        </dependency>-->
-<!--        For mailing-->
+        <dependency>
+            <groupId>group.id</groupId>
+            <artifactId>artifactId.id</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!--For mailing-->
         <dependency>
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>

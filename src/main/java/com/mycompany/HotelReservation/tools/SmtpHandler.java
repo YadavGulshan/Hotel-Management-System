@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class SmtpHandler extends env {
     // Fun!
-//    public static final String[] jobs = {"baking some cakes!" , "cleaning my room!" , "completing my assignments!" , "eating my favourite dish!"};
+    public static final String jobs[] = {"baking some cakes!" , "cleaning my room!" , "completing my assignments!" , "eating my favourite dish!"};
 
     // APP PASSWORD
     private static final String EMAIL = env.Email;
@@ -22,6 +22,7 @@ public class SmtpHandler extends env {
     // paste the generated password here.
     private static final String PASSWORD = env.Password;
     // Vars
+    private static int    recipientId;
     private static String recipientEmail;
     private static String mailSubject;
     private static String recipientName;
@@ -36,7 +37,10 @@ public class SmtpHandler extends env {
     private static String recipientCheckoutDate;
 
     // SMTP constructor here.
-    SmtpHandler(String email,
+    public 
+    SmtpHandler(
+                int id,
+                String email,
                 String subject,
                 String Name,
                 long Phone,
@@ -50,6 +54,7 @@ public class SmtpHandler extends env {
                 // if checkIn is false then just pass an empty string here.
                 String checkoutDate
     ) throws MessagingException {
+        recipientId = id;
         recipientEmail = email;
         mailSubject = subject;
         recipientName = Name;
@@ -113,9 +118,9 @@ public class SmtpHandler extends env {
     public static void main() throws MessagingException {
 
         // Generating random ints
-//        int randomNum = (int) (Math.random() * (jobs.length - 1) + 0);
-//
-//        // Some fun stuff!
+        int randomNum = (int) (Math.random() * (jobs.length - 0 + 1) + 0);
+
+        // Some fun stuff!
 //        System.out.println("Ugh, I was " + jobs[randomNum ]);
         System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
 
@@ -125,7 +130,7 @@ public class SmtpHandler extends env {
         // Object of Email Body class
         EmailBody eb = new EmailBody(
                 recipientName,
-                0,
+                recipientId,
                 recipientAddress,
                 recipientPhone,
                 recipientRoom,

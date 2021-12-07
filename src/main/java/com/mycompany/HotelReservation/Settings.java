@@ -41,6 +41,8 @@ public class Settings extends javax.swing.JFrame {
         AddUser = new javax.swing.JLabel();
         TitelPanel = new javax.swing.JPanel();
         TitelLabel = new javax.swing.JLabel();
+        addUserPanel1 = new javax.swing.JPanel();
+        showHistory = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -55,7 +57,6 @@ public class Settings extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Settings");
-        setAlwaysOnTop(true);
         setBackground(new java.awt.Color(204, 255, 255));
         setResizable(false);
 
@@ -87,7 +88,7 @@ public class Settings extends javax.swing.JFrame {
             deletuserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deletuserPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(DeleteUer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(DeleteUer, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -144,27 +145,59 @@ public class Settings extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        addUserPanel1.setBackground(new java.awt.Color(27, 40, 57));
+
+        showHistory.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        showHistory.setForeground(new java.awt.Color(255, 255, 255));
+        showHistory.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        showHistory.setText("Show History");
+        showHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showHistoryMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout addUserPanel1Layout = new javax.swing.GroupLayout(addUserPanel1);
+        addUserPanel1.setLayout(addUserPanel1Layout);
+        addUserPanel1Layout.setHorizontalGroup(
+            addUserPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addUserPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(showHistory, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        addUserPanel1Layout.setVerticalGroup(
+            addUserPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addUserPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(showHistory, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout mainpanelLayout = new javax.swing.GroupLayout(mainpanel);
         mainpanel.setLayout(mainpanelLayout);
         mainpanelLayout.setHorizontalGroup(
             mainpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainpanelLayout.createSequentialGroup()
-                .addContainerGap(137, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
                 .addComponent(addUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(17, 17, 17)
+                .addComponent(addUserPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(deletuserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
             .addComponent(TitelPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         mainpanelLayout.setVerticalGroup(
             mainpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainpanelLayout.createSequentialGroup()
                 .addComponent(TitelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(mainpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(addUserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deletuserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addGap(85, 85, 85)
+                .addGroup(mainpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(deletuserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addUserPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -175,7 +208,9 @@ public class Settings extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(mainpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -183,7 +218,7 @@ public class Settings extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserMouseClicked
-        this.dispose();
+//        this.dispose();
         Signup_Form sign = new Signup_Form();
         sign.setVisible(true);
         sign.setLocationRelativeTo(null);
@@ -214,6 +249,12 @@ public class Settings extends javax.swing.JFrame {
             Logger.getLogger(Settings.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_DeleteUerMouseClicked
+
+    private void showHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showHistoryMouseClicked
+        ShowHistory showHistory = new ShowHistory();
+        showHistory.setVisible(true);
+        showHistory.setLocationRelativeTo(null);
+    }//GEN-LAST:event_showHistoryMouseClicked
 
     /**
      * @param args the command line arguments
@@ -259,8 +300,10 @@ public class Settings extends javax.swing.JFrame {
     private javax.swing.JLabel TitelLabel;
     private javax.swing.JPanel TitelPanel;
     private javax.swing.JPanel addUserPanel;
+    private javax.swing.JPanel addUserPanel1;
     private javax.swing.JPanel deletuserPanel;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel mainpanel;
+    private javax.swing.JLabel showHistory;
     // End of variables declaration//GEN-END:variables
 }

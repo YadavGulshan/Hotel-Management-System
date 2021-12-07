@@ -1,15 +1,20 @@
 
 package com.mycompany.HotelReservation;
 
+import com.mycompany.HotelReservation.tools.SmtpHandler;
+
+import javax.mail.MessagingException;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@SuppressWarnings("serial")
 public class CheckIn extends javax.swing.JFrame {
     private String room = "Normal";
     private String capacity = "Double";
@@ -26,7 +31,7 @@ public class CheckIn extends javax.swing.JFrame {
         this.E_Id = id;
     }
 
-    @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -243,6 +248,8 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel23.setText("Checkin date");
 
         CheckInDate.setFont(new java.awt.Font("Open Sans", 1, 12)); // NOI18N
+        CheckInDate.setMaxSelectableDate(new java.util.Date(1640979069000L));
+        CheckInDate.setMinSelectableDate(new Date());
         CheckInDate.setOpaque(false);
 
         jLabel2.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
@@ -482,10 +489,9 @@ public class CheckIn extends javax.swing.JFrame {
 
             int roomNumber = Integer.parseInt(RoomNumber.getText());
 
-            String Phonenum = this.PhoneNumber.getText();
-
+            PhoneNumber = this.PhoneNumber.getText();
             if (name.trim().equals("") ||
-                    Phonenum.trim().equals("") ||
+                    PhoneNumber.trim().equals("") ||
                     email.trim().equals("") ||
                     Address.trim().equals("")||
                     checkInDate.trim().equals("")
@@ -493,7 +499,6 @@ public class CheckIn extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "All the Fields are Required For Check In!", "Empty Fields", 2);
             }else {
 
-                PhoneNumber = Phonenum;
                 String QueryAdd = "INSERT INTO `Current User`(`Name`, `Phone`, `Email`, `Room Number`, `Address`, `CheckIn`, `Bill Amount`) VALUES (?,?,?,?,?,?,?)";
 
                 ps = connectDatabase.getConnection().prepareStatement(QueryAdd);
@@ -505,13 +510,36 @@ public class CheckIn extends javax.swing.JFrame {
                 ps.setString(6, checkInDate);
                 ps.setInt(7, Amount);
                 ps.executeUpdate();
-
+                
                 String queryUpdateRoom = "UPDATE `rooms` SET `status`=1 WHERE roomNumber=?";
 
+//                executing query for Change the Booked status of Room to available
                 ps = connectDatabase.getConnection().prepareStatement(queryUpdateRoom);
                 ps.setInt(1, roomNumber);
                 ps.executeUpdate();
 
+                
+                try {
+                    SmtpHandler smpt = new SmtpHandler(
+                            0,
+                            email,
+                            "Booking Confirm At Room Number "+ roomNumber,
+                            name,
+                            Long.parseLong(PhoneNumber),
+                            Address,
+                            roomNumber,
+                            this.room,
+                            this.capacity,
+                            this.Amount,
+                            checkInDate,
+                            true,
+                            null
+                    );
+                } catch (MessagingException ex) {
+                    Logger.getLogger(CheckIn.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+//                Telling the Employee that Check In Done
                 JOptionPane.showMessageDialog(this, "Room Booked For " + name, "Room Booked", JOptionPane.INFORMATION_MESSAGE);
                 this.Address.setText("");
                 Email.setText("");
@@ -523,7 +551,7 @@ public class CheckIn extends javax.swing.JFrame {
             
         } catch(SQLException e){
             Logger.getLogger(Checkout.class.getName()).log(Level.SEVERE, null, e);
-            
+            JOptionPane.showMessageDialog(this, "Something Went Worng!!", "Error", 2);
         }
     }//GEN-LAST:event_checkInButtonActionPerformed
 
