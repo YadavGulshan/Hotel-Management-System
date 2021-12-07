@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class SmtpHandler extends env {
     // Fun!
-    public static final String jobs[] = {"baking some cakes!" , "cleaning my room!" , "completing my assignments!" , "eating my favourite dish!"};
+//    public static final String[] jobs = {"baking some cakes!" , "cleaning my room!" , "completing my assignments!" , "eating my favourite dish!"};
 
     // APP PASSWORD
     private static final String EMAIL = env.Email;
@@ -113,9 +113,9 @@ public class SmtpHandler extends env {
     public static void main() throws MessagingException {
 
         // Generating random ints
-        int randomNum = (int) (Math.random() * (jobs.length - 0 + 1) + 0);
-
-        // Some fun stuff!
+//        int randomNum = (int) (Math.random() * (jobs.length - 1) + 0);
+//
+//        // Some fun stuff!
 //        System.out.println("Ugh, I was " + jobs[randomNum ]);
         System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
 
