@@ -193,7 +193,7 @@ public final class ShowHistory extends javax.swing.JFrame {
 
     private void userNameTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userNameTextKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            System.out.println("ENTER key pressed");
+//            System.out.println("ENTER key pressed");
             searchUser();
         }
     }//GEN-LAST:event_userNameTextKeyPressed
@@ -223,7 +223,7 @@ public final class ShowHistory extends javax.swing.JFrame {
                         model.addRow(new Object[]{"", "", "", "", "", "", "", "", ""});
                         for (int j = 0; j < 9; j++) {
                             model.setValueAt(rs.getObject(j + 1), i, j);
-                            System.out.println("ok");
+//                            System.out.println("ok");
                         }
                         rs.next();
                     }
