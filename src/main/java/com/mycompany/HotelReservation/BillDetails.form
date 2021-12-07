@@ -163,7 +163,7 @@
         <Component class="javax.swing.JTextField" name="SRoomNumber">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Open Sans" size="18" style="0"/>
+              <Font name="Open Sans" size="18" style="1"/>
             </Property>
           </Properties>
         </Component>

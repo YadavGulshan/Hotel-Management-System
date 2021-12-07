@@ -109,7 +109,7 @@ public class BillDetails extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(27, 40, 57));
         jLabel2.setText("Search by Room Number");
 
-        SRoomNumber.setFont(new java.awt.Font("Open Sans", 0, 18)); // NOI18N
+        SRoomNumber.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
 
         Search.setBackground(new java.awt.Color(27, 40, 57));
         Search.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

@@ -30,7 +30,7 @@ import javax.swing.table.DefaultTableModel;
 public final class ShowHistory extends javax.swing.JFrame {
 
     /**
-     * Creates new form checkout_user
+     * Creates new form ShowHistory
      */
     public ShowHistory() {
 

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class Checkout extends javax.swing.JFrame {
 
     /**
-     * Creates new form Checkout1
+     * Creates new form Checkout
      */
     public Checkout() {
         initComponents();

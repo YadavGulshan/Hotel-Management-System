@@ -85,23 +85,23 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel3.setText("Name");
 
-        NameTextfield.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        NameTextfield.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         NameTextfield.setPreferredSize(new java.awt.Dimension(13, 36));
 
         jLabel4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel4.setText("Phone No.");
 
-        PhoneNumber.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        PhoneNumber.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel5.setText("Email");
 
-        Email.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        Email.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel6.setText("Address");
 
-        Address.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        Address.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(27, 40, 57));
 
@@ -247,7 +247,8 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel23.setText("Checkin date");
 
-        CheckInDate.setFont(new java.awt.Font("Open Sans", 1, 12)); // NOI18N
+        CheckInDate.setDate(new Date());
+        CheckInDate.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         CheckInDate.setMaxSelectableDate(new java.util.Date(1640979069000L));
         CheckInDate.setMinSelectableDate(new Date());
         CheckInDate.setOpaque(false);
@@ -310,6 +311,7 @@ public class CheckIn extends javax.swing.JFrame {
         jLabel9.setText("Per Day Amount");
 
         amountField.setEditable(false);
+        amountField.setFont(new java.awt.Font("FiraCode Nerd Font", 1, 14)); // NOI18N
         amountField.setText("₹  ");
         amountField.setToolTipText("");
 

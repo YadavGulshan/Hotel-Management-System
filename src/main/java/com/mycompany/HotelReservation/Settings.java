@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author HP
+ * @author Rahul
  */
 public class Settings extends javax.swing.JFrame {
 

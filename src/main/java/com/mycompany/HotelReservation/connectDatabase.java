@@ -11,7 +11,7 @@ public class connectDatabase
         try{
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost/hotel","root","rahul123");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost/hotel","root","YOUR PASSWORD");
         }catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
         }
