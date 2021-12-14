@@ -64,10 +64,6 @@ ___
 
 **Credits**
 
-[**Mansi and Mayank Viramgama**]()<br>
-
-> UI Design
-> <br>
 
 [**Rahul Yadav**](https://github.com/rahul007-bit/)<br>
 
