@@ -526,7 +526,7 @@ public class CheckIn extends javax.swing.JFrame {
                     SmtpHandler smpt = new SmtpHandler(
                             0,
                             email,
-                            "Booking Confirm At Room Number "+ roomNumber,
+                            "Booking Confirmed At Room No. "+ roomNumber,
                             name,
                             Long.parseLong(PhoneNumber),
                             Address,

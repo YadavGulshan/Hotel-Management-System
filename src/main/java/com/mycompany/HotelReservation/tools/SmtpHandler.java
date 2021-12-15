@@ -179,7 +179,7 @@ public class SmtpHandler extends env {
         int randomNum = (int) (Math.random() * (jobs.length - 0 + 1) + 0);
 
         // Some fun stuff!
-//        System.out.println("Ugh, I was " + jobs[randomNum ]);
+        System.out.println("Ugh, I was " + jobs[randomNum ]);
         System.out.println("Okay sending this mail, you guys won't let me live my life naa?\nI hate you!\uD83D\uDE2D\n\n");
 
         // Send email to whom? and what to send?
