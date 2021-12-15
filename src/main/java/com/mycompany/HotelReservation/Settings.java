@@ -4,6 +4,8 @@
  */
 package com.mycompany.HotelReservation;
 
+import com.mycompany.HotelReservation.database.connectDatabase;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

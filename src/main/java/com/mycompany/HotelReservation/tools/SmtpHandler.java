@@ -2,13 +2,16 @@ package com.mycompany.HotelReservation.tools;
 
 import com.mycompany.HotelReservation.env.env;
 import com.mycompany.HotelReservation.template.EmailBody;
+import com.sun.source.tree.IfTree;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
 import java.util.Properties;
 
 public class SmtpHandler extends env {
@@ -17,12 +20,7 @@ public class SmtpHandler extends env {
 
     // APP PASSWORD
     private static final String EMAIL = env.Email;
-    // TO Generate:
-    // Ensure that 2-step verification is enabled in your Google account.
-    // head over to my account page
-    // Enable the app password, select other as the application
-    // set app name to `hotelopedia` then hit enter
-    // paste the generated password here.
+
     private static final String PASSWORD = env.Password;
     // Vars
     private static int    recipientId;
@@ -78,23 +76,73 @@ public class SmtpHandler extends env {
         Session session = createSession();
 
         // Creating a message.
-        MimeMessage message = new MimeMessage(session);
+        Message message = new MimeMessage(session);
         prepareEmailMessage(message, to, subject, body);
+
+
+
+        // Setting up the email body with the passed String.
+        BodyPart messageBodyPart = new MimeBodyPart();
+        messageBodyPart.setContent(body,"text/html; charset=utf-8");
+
+
+        /*
+         * ┌─────────────────────────────────────────────────────────────────┐
+         * │                                                                 │
+         * │                                                                 │
+         * │    Setting up the Multipart to add body and Multipart.          │
+         * │                                                                 │
+         * │                                                                 │
+         * │    Why??                                                        │
+         * │                                                                 │
+         * │    Previously I tried using the var of type `Message`           │
+         * │                                                                 │
+         * │                                                                 │
+         * │    So what's wrong with that?                                   │
+         * │                                                                 │
+         * │    It doesn't allow me to add attachment. So I had to scrap     │
+         * │    it off.                                                      │
+         * │                                                                 │
+         * │                                                                 │
+         * └─────────────────────────────────────────────────────────────────┘
+         */
+        Multipart multipart = new MimeMultipart();
+
+        // Adding the content into the body of email.
+        multipart.addBodyPart(messageBodyPart);
 
         // Setting up the attachment
         MimeBodyPart attachment = new MimeBodyPart();
+
+        // Attaching the invoice into the email.
         try {
-            attachment.attachFile(new File("out/invoices/"+recipientId+".pdf"));
+            String Path = "out/invoices/"+recipientId+".pdf";
+            System.out.println("Looking for invoice!");
+            if (new File(Path).exists()) {
+                System.out.println("I found the Invoice!");
+                attachment.attachFile(new File(Path));
+                multipart.addBodyPart(attachment);
+            } else {
+                System.out.println("FILE NOT FOUND!");
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        // Setting the content of email.
+        message.setContent(multipart);
+
+
         // Finally, Send this email!
         Transport.send(message);
         System.out.println("Email sent!");
     }
 
-    private static void prepareEmailMessage(MimeMessage message, String to, String subject, String body) throws MessagingException {
-        message.setContent(body, "text/html; charset=utf-8");
+
+
+    // Prepare email with the details such as from, subjects, bla, bla, bla.
+    private static void prepareEmailMessage(Message message, String to, String subject, String body) throws MessagingException {
         message.setFrom(new InternetAddress(EMAIL));
         message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
         message.setSubject(subject);

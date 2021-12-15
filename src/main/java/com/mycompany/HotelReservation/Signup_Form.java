@@ -1,6 +1,7 @@
 package com.mycompany.HotelReservation;
 
-import java.awt.*;
+import com.mycompany.HotelReservation.database.connectDatabase;
+
 import java.util.regex.*;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

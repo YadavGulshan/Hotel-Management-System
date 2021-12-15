@@ -1,6 +1,8 @@
 
 package com.mycompany.HotelReservation;
 
+import com.mycompany.HotelReservation.database.connectDatabase;
+
 import java.awt.event.KeyEvent;
 //import java.io.BufferedOutputStream;
 //import java.io.FileNotFoundException;

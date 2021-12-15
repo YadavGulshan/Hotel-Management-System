@@ -2,6 +2,8 @@
 package com.mycompany.HotelReservation;
 
 
+import com.mycompany.HotelReservation.database.connectDatabase;
+
 import javax.swing.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

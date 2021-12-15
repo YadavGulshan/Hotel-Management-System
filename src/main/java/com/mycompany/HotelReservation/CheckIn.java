@@ -1,6 +1,7 @@
 
 package com.mycompany.HotelReservation;
 
+import com.mycompany.HotelReservation.database.connectDatabase;
 import com.mycompany.HotelReservation.tools.SmtpHandler;
 
 import javax.mail.MessagingException;

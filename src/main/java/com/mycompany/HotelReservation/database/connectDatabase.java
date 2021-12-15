@@ -1,4 +1,4 @@
-package com.mycompany.HotelReservation;
+package com.mycompany.HotelReservation.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,7 +11,7 @@ public class connectDatabase
         try{
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost/hotel","root","YOUR PASSWORD");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost/hotel","root","MySql@123");
         }catch(ClassNotFoundException | SQLException e){
             System.out.println(e.getMessage());
         }

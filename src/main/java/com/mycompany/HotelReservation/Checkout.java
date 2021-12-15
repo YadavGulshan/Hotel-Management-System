@@ -1,5 +1,6 @@
 package com.mycompany.HotelReservation;
 
+import com.mycompany.HotelReservation.database.connectDatabase;
 import com.mycompany.HotelReservation.tools.InvoiceGenerator;
 import com.mycompany.HotelReservation.tools.SmtpHandler;
 
