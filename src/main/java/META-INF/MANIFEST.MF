@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.mycompany.HotelReservation.Login_Form
+Main-Class: com.mycompany.HotelReservation.screens.Login_Form
 

@@ -1,5 +1,5 @@
 
-package com.mycompany.HotelReservation;
+package com.mycompany.HotelReservation.screens;
 
 
 import com.mycompany.HotelReservation.database.connectDatabase;
