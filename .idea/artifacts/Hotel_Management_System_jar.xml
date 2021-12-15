@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Hotel-Management-System:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Hotel_Management_System_jar</output-path>
+    <root id="archive" name="Hotel-Management-System.jar">
+      <element id="module-output" name="Hotel-Management-System" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/group/id/artifactId.id/1.0/artifactId.id-1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/itextpdf/itextpdf/5.5.13.2/itextpdf-5.5.13.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/netbeans/external/AbsoluteLayout/RELEASE125/AbsoluteLayout-RELEASE125.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/sun/mail/javax.mail/1.6.2/javax.mail-1.6.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/toedter/jcalendar/1.4/jcalendar-1.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
