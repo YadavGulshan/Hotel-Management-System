@@ -103,17 +103,18 @@ public class InvoiceGenerator {
 
 
             // Open file
-            if (!Desktop.isDesktopSupported()){
-                System.out.println("System not supported!");
-                return;
-            }
-            Desktop desktop = Desktop.getDesktop();
-            if(FILE.exists()){
-                desktop.open(FILE);
-            } else {
-                System.out.println("File Does not exists!");
-            }
-//            return;
+//            if (!Desktop.isDesktopSupported()){
+//                System.out.println("System not supported!");
+//                return;
+//            }
+//            Desktop desktop = Desktop.getDesktop();
+//            if(FILE.exists()){
+//                desktop.open(FILE);
+//            } else {
+//                System.out.println("File Does not exists!");
+//            }
+            System.out.println("Invoice Generated!");
+            return;
         } catch (DocumentException | FileNotFoundException e) {
             e.printStackTrace();
         }

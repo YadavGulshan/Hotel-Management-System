@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="mavenproject1" />
+        <module name="Hotel-Management-System" />
         <module name="HotelReservation" />
       </profile>
     </annotationProcessing>

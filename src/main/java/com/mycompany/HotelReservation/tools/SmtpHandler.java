@@ -5,7 +5,10 @@ import com.mycompany.HotelReservation.template.EmailBody;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import java.io.File;
+import java.io.IOException;
 import java.util.Properties;
 
 public class SmtpHandler extends env {
@@ -78,6 +81,13 @@ public class SmtpHandler extends env {
         MimeMessage message = new MimeMessage(session);
         prepareEmailMessage(message, to, subject, body);
 
+        // Setting up the attachment
+        MimeBodyPart attachment = new MimeBodyPart();
+        try {
+            attachment.attachFile(new File("out/invoices/"+recipientId+".pdf"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // Finally, Send this email!
         Transport.send(message);
         System.out.println("Email sent!");
