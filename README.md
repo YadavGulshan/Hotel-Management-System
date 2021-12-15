@@ -65,6 +65,9 @@ ___
 **Credits**
 
 
+**Mansi and Mayank Viramgama**
+> Developed the UI design
+
 [**Rahul Yadav**](https://github.com/rahul007-bit/)<br>
 
 > Made UI functional and also faced and fixed hell lot of complexity while making code usable for both netbeans and intellij.
